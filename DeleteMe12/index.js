@@ -10,3 +10,6 @@ var foo = {
 	}
 };
 
+console.log(foo.firstName);
+console.log(foo.lastName);
+console.log(foo.fullName());
