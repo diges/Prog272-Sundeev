@@ -10,7 +10,7 @@ describe("Prog272 test", function() { 'use strict';
 		expect(milesConvert.milesToFeet()).toBe(15840);
 	});
 
-	it("expects add(3,7) to equal 10", function() {
+	it("expects fnMilesConvert(50) to equal 264000", function() {
 		var actual=fnMilesConvert(50);
 		expect(actual).toBe(264000);
 	});
