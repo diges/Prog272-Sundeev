@@ -15,7 +15,6 @@ var milesConvert = {
 function fnMilesConvert(miles) {'use strict';
 	var feetPerMile = 5280;
 	var result = miles * feetPerMile;
-	//document.getElementById('answ').innerHTML = result;
 	return result;
 }
 
