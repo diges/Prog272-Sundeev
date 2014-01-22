@@ -2,7 +2,13 @@
  * @author dmitry.sundeev
  */
 
-function getNine() {
-	return 9;
-}
+var NumberGetter = {
 
+	getNine : function() {
+		return 9;
+	},
+
+	getEight : function() {
+		return 8;
+	}
+};
