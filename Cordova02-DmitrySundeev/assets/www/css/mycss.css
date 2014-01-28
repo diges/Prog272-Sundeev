@@ -2,6 +2,17 @@ h1{
 	text-align:center;
 }
 
+#header{
+  width: 350px;
+  margin:0 auto;
+}
+#header input {
+	width:49%;
+	font-size:2em;
+}
+
+
+
 form {
   width: 350px;
   margin:0 auto;
