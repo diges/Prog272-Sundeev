@@ -1,0 +1,50 @@
+h1{
+	text-align:center;
+}
+
+form {
+  width: 350px;
+  margin:0 auto;
+  padding: 20px;
+  background-color: #dddddd;
+  border-radius: 20px;
+}
+form p {
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+fieldset {
+  padding: 0 20px 20px;
+  margin: 10 0 30px ;
+  border: 2px solid #ffffff;
+  background: #B8B8B8 ;
+  border-radius: 10px;
+}
+legend {
+  color: #ffffff;
+  background: #990033;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: left;
+  padding: 5px;
+  margin: 0;
+  width: 10em;
+  border: 2px solid #660033;
+  border-radius: 5px;
+ }
+label {
+  display: block;
+  float: left;
+  clear: left;
+  text-align: left;
+  width: 100%;
+  padding: .4em 0 0 0;
+  margin: .15em 0 0 0;
+}
+
+#bt {
+	width:100%;
+	font-size:2em;
+}
+	
