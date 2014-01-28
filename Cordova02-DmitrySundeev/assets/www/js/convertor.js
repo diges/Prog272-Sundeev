@@ -23,10 +23,10 @@ function display(){
 	document.getElementById("cellsius").innerHTML=myConverter.FrToCelsius(fr).toFixed(2);
 	
 	var milles=parseFloat(document.getElementById("milles").value);
-	document.getElementById("km").innerHTML=myConverter.FrToCelsius(milles).toFixed(2);
+	document.getElementById("km").innerHTML=myConverter.MilesToKm(milles).toFixed(2);
 	
 	var sq=parseFloat(document.getElementById("sq").value);
-	document.getElementById("sqroot").innerHTML=myConverter.FrToCelsius(sq).toFixed(2);
+	document.getElementById("sqroot").innerHTML=myConverter.sqRoot(sq).toFixed(2);
 
 }
 
