@@ -34,6 +34,14 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        
+        var myConverter = new MyConverter();
+		$("#bt1").click(myConverter.calc);
+		$("#zoomIn").click(myConverter.ZoomIn);
+		$("#zoomOut").click(myConverter.ZoomOut);
+        
+        
+        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

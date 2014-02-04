@@ -54,8 +54,13 @@ label {
   margin: .15em 0 0 0;
 }
 
-#bt {
+#bt1  {
 	width:100%;
 	font-size:2em;
 }
+#zoomIn, #zoomOut  {
+	width:48%;
+	font-size:2em;
+}
+	
 	
