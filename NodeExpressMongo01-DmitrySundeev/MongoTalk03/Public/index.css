@@ -1,0 +1,19 @@
+body {
+	background-color: #00AAAA;	
+}
+
+#output {
+	width:400px;
+	background-color: white;
+	margin:20px;
+	padding:20px;
+}
+
+#output p {
+	font-size:16px;
+}
+
+#output span {
+	font-weight: bold; 
+	font-size:16px;
+}
