@@ -8,14 +8,20 @@ var QueryMongo = (function() {
 
     var url01 = 'mongodb://127.0.0.1:27017/test';
     var url02 = 'mongodb://192.168.2.19:27017/test';
+    
+    var that=this;
 
     function QueryMongo() {
+		
+		
 
         // Open the test database that comes with MongoDb
         MongoClient.connect(url01, function(err, database) {
             if (err) {
                 throw err;
             }
+            
+            var collection = database.collection('test_data_Dmitry');
 
             for (var i=1; i<256;i++) {
 				DBid=1000+i;
@@ -31,7 +37,7 @@ var QueryMongo = (function() {
 
     var getCollection = function(database) {
 
-        var collection = database.collection('test_data_Dmitry');
+        //var collection = database.collection('test_data_Dmitry');
 
         // Count documents in the collection
         collection.count(function(err, count) {

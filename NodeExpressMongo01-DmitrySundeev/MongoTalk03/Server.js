@@ -36,7 +36,7 @@ var QueryMongo = (function() {
 	
 	var getCollection = function(database, response) {
 
-		var collection = database.collection('test_data');
+		var collection = database.collection('test_data_Dmitry');
 
 		// Count documents in the collection
 		collection.count(function(err, count) {
