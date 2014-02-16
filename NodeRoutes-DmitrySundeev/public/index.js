@@ -6,12 +6,12 @@ var Converter = (function(){
 	
 	// Constructor
 	function Converter(){
-		$("#btCalc").click(Miles);
+		$("#btCalc").click;
 	}
 	
 	var Feet = function() {
 		var Result = $('#results');
-		Result.load('/Feet', function(response, status, xhr) {
+		Result.load('/feetinmile', function(response, status, xhr) {
 			if (status == "error") {
 				nineResult.html("Error: <strong>" + xhr.statusText + "</strong>");
 			}
@@ -22,7 +22,7 @@ var Converter = (function(){
 		var miles = $("#inputBox").val();
 
 		$.ajax({
-			url : "/miles",
+			url : "/feetinmiles",
 			type : "GET",
 			data : {
 				"par1" : miles,
@@ -38,6 +38,10 @@ var Converter = (function(){
 			}
 		});
 	};
+	
+	
+	
+	
 	
 	
 });

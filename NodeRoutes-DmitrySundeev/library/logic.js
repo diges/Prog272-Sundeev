@@ -28,4 +28,4 @@ var MyObj = (function (){
 	
 })();
 
-exports.MyObj = new MyObj();
+exports.myObj = new MyObj();

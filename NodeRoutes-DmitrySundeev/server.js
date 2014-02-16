@@ -5,35 +5,33 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var getNine = require('./Library/GetNine');
-var addingMachine = require('./Library/AddingMachine');
+var FinM = require('./library/logic');
+//var addingMachine = require('./Library/AddingMachine');
 app.use(express.bodyParser());
 
 var port = process.env.PORT || 30025;
 
-app.get('/temp', function(request, response) {
-	console.log('getNine called');
-	response.send({ "result": getNine.getNine() });
+app.get('/feetinmile', function(request, response) {
+	console.log('FeetInMile called');
+	response.send({ "result": FinM.myObj.FeetInMile() });
 });
 
 // With a get, the parameters are passed in request.query
-app.get('/distance', function(request, response) {
-	console.log('add called');	
+app.get('/feetinmiles', function(request, response) {
+	console.log('miles called');	
 	console.log(request.query);	
-	var operandA = parseInt(request.query.operandA);
-	var operandB = parseInt(request.query.operandB);
-	var result = addingMachine.myObject.add(operandA, operandB);
+	var miles = parseInt(request.query.miles);
+	var result = FinM.myObj.FeetInMileS(miles);
 	response.send({ "result": result });
 });
 
 /* To handle a post, we have to add express.bodyParser, shown above
    Now our parameters come in on request.body */
-app.post('/add', function(request, response) {
-	console.log('add called');	
+app.post('/circumference', function(request, response) {
+	console.log('circumference called');	
 	console.log(request.body);	
-	var operandA = parseInt(request.body.operandA);
-	var operandB = parseInt(request.body.operandB);
-	var result = addingMachine.myObject.add(operandA, operandB);
+	var radius = parseInt(request.body.radius);
+	var result = FinM.myObj.circumference(radius);
 	response.send({ "result": result });
 });
 
