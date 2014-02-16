@@ -6,7 +6,7 @@
 var MyObj = (function (){
 	
 	function MyObj (){
-		console.log("MyObject.Constructor called");
+		console.log("MyObj.Constructor called");
 	}
 	
 	
@@ -15,15 +15,15 @@ var MyObj = (function (){
 	};
 	
 	MyObj.prototype.FeetInMileS = function (miles){
-		return MyObj.FeetInMile*miles;
+		return (this.FeetInMile()*miles);
 	};
 
 	MyObj.prototype.circumference  = function (Radius){
-		return 2*Radius* Math.PI;
+		return (2*Radius*Math.PI);
 	};	
 	
 	
-	return MyObject;
+	return MyObj;
 	
 	
 })();
