@@ -1,0 +1,20 @@
+body {
+	background-color: #CCC;
+}
+
+#content {
+	background-color: white;
+	width: 400px;
+	margin: auto;
+	padding: 10px;
+}
+
+ul {
+	list-style-type: none;
+	
+}
+
+h1 {
+	font-size: 16px;
+	text-align: center;
+}

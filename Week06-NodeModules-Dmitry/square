@@ -1,0 +1,18 @@
+/**
+ * @author Dmitry
+ */
+
+var MySquare = (function(){
+	
+	function MySquare() {
+		console.log("MySquare.Constructor called");
+	}
+	
+	MySquare.prototype.square = function (Arg) {
+		return Arg*Arg;
+	};
+	
+	return MySquare;
+});
+
+exports.MySquare = new MySquare();

@@ -1,0 +1,24 @@
+var MyMath = (function (){
+	
+	function MyMath () {
+		console.log("MyMath.Constructor called");
+	}
+	
+	MyMath.prototype.add = function (parA,parB) {
+		return parA+parB;
+	};
+	
+	MyMath.prototype.substract = function  (parA,parB) {
+		return parA-parB;
+	};
+	
+	MyMath.prototype.myltiplay = function (parA,parB) {
+		return parA*parB;
+	};
+	
+	return MyMath;
+
+}());
+
+exports.MyMath = new MyMath();
+

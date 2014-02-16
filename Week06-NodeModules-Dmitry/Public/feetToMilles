@@ -1,0 +1,21 @@
+/**
+ * @author Dmitry
+ */
+
+var MyConverter =(function (){
+	
+	var kf=5280;
+	
+	function MyConverter () {
+		console.log("MyConverter.Constructor called");
+	}
+	
+	MyConverter.prototape.feetToMiiles = function (arg) {
+		return arg/kf;
+	};
+	
+	return MyConverter;
+
+}());
+
+exports.MyConverter = new MyConverter();
