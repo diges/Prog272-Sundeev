@@ -8,11 +8,11 @@ var MySquare = (function(){
 		console.log("MySquare.Constructor called");
 	}
 	
-	MySquare.prototype.square = function (Arg) {
-		return Arg*Arg;
+	MySquare.prototype.square = function (Num1) {
+		return Num1*Num1;
 	};
 	
 	return MySquare;
-});
+})();
 
-exports.MySquare = new MySquare();
+exports.mySquare = new MySquare();

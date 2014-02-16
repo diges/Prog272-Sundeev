@@ -20,5 +20,5 @@ var MyMath = (function (){
 
 }());
 
-exports.MyMath = new MyMath();
+exports.myMath = new MyMath();
 

@@ -10,12 +10,12 @@ var MyConverter =(function (){
 		console.log("MyConverter.Constructor called");
 	}
 	
-	MyConverter.prototape.feetToMiiles = function (arg) {
-		return arg/kf;
+	MyConverter.prototype.feetToMiiles = function (feet) {
+		return (feet/kf);
 	};
 	
 	return MyConverter;
 
 }());
 
-exports.MyConverter = new MyConverter();
+exports.myConverter = new MyConverter();
