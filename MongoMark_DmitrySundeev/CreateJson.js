@@ -6,6 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
 var fs = require('fs');
 var collectionName='test_md';
+var exec = require('child_process').exec;
  
 var ReadFileMD = (function() {
  
@@ -58,13 +59,22 @@ var ReadFileMD = (function() {
             var body = theArray[0].content
             console.log(body);
             
-            fs.writeFile(__dirname + '/sources/sourceFileOut.html', body, function (err) {
+            
+            //exec('pandoc -t html5 -o '+bodyhtml+' '+ body, function callback(error, stdout, stderr) { // Read in the HTML send the HTML to the client 
+				
+				
+			fs.writeFile(__dirname + '/sources/sourceFileOut.html', bodyhtml, function (err) {
 			  if (err) throw err;
 			  console.log('It\'s saved!');
 			  db.close();
 			});	
             
 			response.end(body);
+				
+				
+			//});
+            
+            
 			
         
         
