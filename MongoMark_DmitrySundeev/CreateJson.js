@@ -60,13 +60,21 @@ var ReadFileMD = (function() {
             console.log(body);
             
             
+            
             //exec('pandoc -t html5 -o '+bodyhtml+' '+ body, function callback(error, stdout, stderr) { // Read in the HTML send the HTML to the client 
+			
 				
-				
-			fs.writeFile(__dirname + '/sources/sourceFileOut.html', bodyhtml, function (err) {
+			fs.writeFile(__dirname + '/sources/sourceFileOut.md', body, function (err) {
 			  if (err) throw err;
 			  console.log('It\'s saved!');
 			  db.close();
+			  
+			  exec('pandoc -t html5 -o ./sources/sourceFileOut.html ./sources/sourceFileOut.md', function callback(error, stdout, stderr) {
+					if (err) throw err;
+					console.log('File created');
+					
+				});
+			  
 			});	
             
 			response.end(body);
