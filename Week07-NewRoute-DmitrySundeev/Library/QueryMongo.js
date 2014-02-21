@@ -31,6 +31,7 @@ var QueryMongo = (function() {'use strict';
 			});
 		} else {
 			console.log('Querying for database');
+			console.log(url);
 			MongoClient.connect(url, function(err, databaseResult) {
 				if (err) {
 					throw err;
