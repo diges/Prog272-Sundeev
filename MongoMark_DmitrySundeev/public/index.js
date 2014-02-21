@@ -14,6 +14,7 @@ var Func = (function(){
 	var load = function() {
 		
 		var fResult = $('#results');
+		
 		$.get('/loadfile', function(data) {
 			//fResult.html("<strong>" + data.result + "</strong>");
 		});
@@ -23,7 +24,7 @@ var Func = (function(){
 		
 		var fResult = $('#results');
 		$.get('/show', function(data) {
-			//fResult.html("<strong>" + data.result + "</strong>");
+			fResult.html(data);
 		});
 	};
 	

@@ -3,28 +3,68 @@
  */
  
 var MongoClient = require('mongodb').MongoClient;
-var format = require('util').format;
 var fs = require('fs');
 var collectionName='test_md';
 var exec = require('child_process').exec;
  
-var ReadFileMD = (function() {
+var ReadFileMD = (function() {'use strict';
  
-    var url01 = 'mongodb://127.0.0.1:27017/test';
+    var response = null;
+	var database = null;
+	var url = null;
     
     function ReadFileMD() {
+		url = 'mongodb://127.0.0.1:27017/test';
  
     }
     
+    var getDB = function(func) {
+		console.log('Called getDB');
+		if (database !== null) {
+			console.log('database exists');
+			database.open(function(err, database) {
+				if (err) {
+					throw err;
+				}
+				func(database);
+			});
+		} else {
+			console.log('Querying for database');
+			console.log(url);
+			MongoClient.connect(url, function(err, databaseResult) {
+				if (err) {
+					throw err;
+				}
+				database = databaseResult;
+				func(database);
+			});
+		}
+	};
+	
+	
+	ReadFileMD.prototype.getCollection = function(initResponse) {
+		console.log("getCollection called");
+		response = initResponse;
+		getDB(function getCol(database) {
+			var collection = database.collection(collectionName);
+
+			// Send the collection to the client.
+			collection.find().toArray(function(err, theArray) {
+				console.dir(theArray);
+				database.close();
+				response.send(theArray);
+			});
+		});
+	};
+    
+    
+    
     ReadFileMD.prototype.loadtoDB = function(result, fileContent){
 		console.log('loadtoDB called');
-		MongoClient.connect(url01, function(err, database) {
-            if (err) {
-                throw err;
-            }
-            console.log('IngetDataCallback');
-            insertIntoCollection(database, collectionName, { "filename": "sourceFile.md", "content":fileContent});
-        });
+		getDB(function getCol(database) {
+			console.log('IngetDataCallback');
+			insertIntoCollection(database, collectionName, { "filename": "sourceFile.md", "content":fileContent});
+		});
 		
 	};
 	
@@ -42,14 +82,12 @@ var ReadFileMD = (function() {
 	
 	ReadFileMD.prototype.saveToHTML = function(result){
 		console.log('saveToHTML Called');
-		MongoClient.connect(url01, function(err, database) {
-            if (err) {
-                throw err;
-            }
-            getData(database, result);
-        });
+		getDB(function getCol(database) {
+			getData(database, result);
+		});
 	};
-	
+	 
+   
     
     var getData = function(db, response) {
 		
@@ -58,11 +96,6 @@ var ReadFileMD = (function() {
 
             var body = theArray[0].content
             console.log(body);
-            
-            
-            
-            //exec('pandoc -t html5 -o '+bodyhtml+' '+ body, function callback(error, stdout, stderr) { // Read in the HTML send the HTML to the client 
-			
 				
 			fs.writeFile(__dirname + '/sources/sourceFileOut.md', body, function (err) {
 			  if (err) throw err;
@@ -73,19 +106,15 @@ var ReadFileMD = (function() {
 					if (err) throw err;
 					console.log('File created');
 					
+					var htmlbody = fs.readFileSync(__dirname + '/sources/sourceFileOut.html');
+					response.send(htmlbody);
+					
+					db.close();	
+					
 				});
 			  
 			});	
-            
-			response.end(body);
-				
-				
-			//});
-            
-            
-			
-        
-        
+
         });
 	};
     
