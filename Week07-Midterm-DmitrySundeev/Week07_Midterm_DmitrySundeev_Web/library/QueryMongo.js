@@ -49,7 +49,9 @@ var QueryMongo = (function() {'use strict';
 			var collection = database.collection(ColName);
 
 			// Send the collection to the client.
-			collection.findOne({"_id": new ObjectId(id)}, { content:1 },function(err, doc) {
+			//collection.findOne({"_id": new ObjectId(id)}, { content:1 },function(err, doc) {
+			//collection.findOne({"_id": new ObjectId(id)}, { title:1, author:1 ,content:1 },function(err, doc) {
+			collection.find({"_id": new ObjectId(id)}, { title:1, author:1 ,content:1 }).toArray(function(err, doc) {
 				console.dir(doc);
 				database.close();
 				response.send(doc);

@@ -2,6 +2,23 @@ body {
 	background-color: #00AAAA;	
 }
 
+#filters{
+	width:350px;
+	margin:20px;
+
+}
+#filters p{
+    margin:0;
+}
+
+#filters input,select{
+    width: 180px;
+}
+#filters button{
+    width: 120px;
+}
+
+
 #dataDisplay
 {
     position: static;
