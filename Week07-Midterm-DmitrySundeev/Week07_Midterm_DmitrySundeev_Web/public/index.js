@@ -9,24 +9,37 @@ var MongoData = (function() { 'use strict';
 		$("#ImportReccords").click(newRecord);
 	}
 
-	var displayRecord = function(index) {
-		$('#firstName').html(mongoData[index].firstName);
-		$('#lastName').html(mongoData[index].lastName);
-		$('#address').html(mongoData[index].address);
-		$('#city').html(mongoData[index].city);
-		$('#state').html(mongoData[index].state);
-		$('#zip').html(mongoData[index].zip);
+	var displayData = function() {
+		
+		$('#dataDisplay').empty();
+		
+		var string="<div id='countTotal'>Total retrived from DB: "+mongoData.length+"</div>";
+		$('#dataDisplay').html(string);
+		
+		
+		for (var index = 0; index < mongoData.length; index++)
+		{
+			string=$('#dataDisplay').html();
+			string+="<div>";
+				string+="<p><span id='author'>"+mongoData[index].author+"</span></p>";
+				string+="<p><span id='title'>"+mongoData[index].title+"</span></p>";
+				string+="<p><span id='content'>"+mongoData[index].content+"</span></p>";
+			string+="</div>";
+			
+			$('#dataDisplay').html(string);
+		}
+				
+
 	};
 	
 	var loadData = function() {
 		$.getJSON('/readAll', function(data) {
-			//mongoData = data;
 			console.log(data);
-			$("#results").empty();
+			$("#resultsDebug").empty();
 			$("#select").empty();
 			for (var i = 0; i < data.length; i++) {
 				$("#select").append('<option id="'+ data[i]._id + '">' + data[i].title + '</option>');
-				$("#results").append('<li>' + JSON.stringify(data[i]) + '</li>');
+				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
 	};
@@ -37,10 +50,10 @@ var MongoData = (function() { 'use strict';
 		$.getJSON('/keyword/'+url, function(data) {
 			mongoData = data;
 			console.log(data);
-			displayRecord(0);
-			$("#results").empty();
+			displayData(0);
+			$("#resultsDebug").empty();
 			for (var i = 0; i < data.length; i++) {
-				$("#results").append('<li>' + JSON.stringify(data[i]) + '</li>');
+				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
 	};
@@ -65,9 +78,9 @@ var MongoData = (function() { 'use strict';
 			mongoData = data;
 			console.log(data);
 			displayRecord(0);
-			$("#results").empty();
+			$("#resultsDebug").empty();
 			for (var i = 0; i < data.length; i++) {
-				$("#results").append('<li>' + JSON.stringify(data[i]) + '</li>');
+				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
 	};
@@ -77,9 +90,9 @@ var MongoData = (function() { 'use strict';
 			mongoData = data;
 			console.log(data);
 			displayRecord(0);
-			$("#results").empty();
+			$("#resultsDebug").empty();
 			for (var i = 0; i < data.length; i++) {
-				$("#results").append('<li>' + JSON.stringify(data[i]) + '</li>');
+				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
 	};

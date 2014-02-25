@@ -12,25 +12,44 @@
 <p>A simple Node Express program with MongoDb support.</p>
 
 
-<button id="readAll">Read All</button>
+<button id="readAll">Load Data</button>
 <input type="text" id="txtFilter" value="">
 <button id="btFilter">Apply Filter</button>
 <select name="#" id="select">
-      <option selected="selected">Clisk READ ALL to load data</option>
+      <option selected="selected">Clisk Load Data to load the data</option>
 </select>
 <button id="btComboSelect">Show</button>
 
-<button id="ImportReccords">Import JSON file to DB Reccord</button>
+<button id="ImportReccords">Import JSON file to MongoDB</button>
 
-<div class="dataDisplay">
-	<p><span id="firstName"> </span> <span id="lastName"> </span></p>
-	<p><span id="address"> </span></p>
-	<p><span id="city"> </span> <span id="state"> </span> <span id="zip"> </span></p>
+<div id="dataDisplay">
+	<div id="countTotal">Total retrived from DB: 0</div>
+
+	<div>
+		<p><span id="author"> Shakespeare</span></p>
+	<p><span id="title"> Sonnet 1</span></p>
+	<p><span id="content"> From fairest creatures we desire increase,<br />That thereby beauty's rose might never die,<br />But as the riper should by time decease,<br />His tender heir might bear his memory:<br />But thou contracted to thine own bright eyes,<br />Feed'st thy light's flame with self-substantial fuel,<br />Making a famine where abundance lies,<br />Thy self thy foe, to thy sweet self too cruel:<br />Thou that art now the world's fresh ornament,<br />And only herald to the gaudy spring,<br />Within thine own bud buriest thy content,<br />And tender churl mak'st waste in niggarding:<br />Pity the world, or else this glutton be,<br />To eat the world's due, by the grave and thee.</span></p>
+	</div>
+
+	<div>
+	<p><span id="author"> Shakespeare</span></p>
+	<p><span id="title"> Sonnet 1</span></p>
+	<p><span id="content"> From fairest creatures we desire increase,<br />That thereby beauty's rose might never die,<br />But as the riper should by time decease,<br />His tender heir might bear his memory:<br />But thou contracted to thine own bright eyes,<br />Feed'st thy light's flame with self-substantial fuel,<br />Making a famine where abundance lies,<br />Thy self thy foe, to thy sweet self too cruel:<br />Thou that art now the world's fresh ornament,<br />And only herald to the gaudy spring,<br />Within thine own bud buriest thy content,<br />And tender churl mak'st waste in niggarding:<br />Pity the world, or else this glutton be,<br />To eat the world's due, by the grave and thee.</span></p>
+	</div>
+
+	<div>
+	<p><span id="author"> Shakespeare</span></p>
+	<p><span id="title"> Sonnet 1</span></p>
+	<p><span id="content"> From fairest creatures we desire increase,<br />That thereby beauty's rose might never die,<br />But as the riper should by time decease,<br />His tender heir might bear his memory:<br />But thou contracted to thine own bright eyes,<br />Feed'st thy light's flame with self-substantial fuel,<br />Making a famine where abundance lies,<br />Thy self thy foe, to thy sweet self too cruel:<br />Thou that art now the world's fresh ornament,<br />And only herald to the gaudy spring,<br />Within thine own bud buriest thy content,<br />And tender churl mak'st waste in niggarding:<br />Pity the world, or else this glutton be,<br />To eat the world's due, by the grave and thee.</span></p>
+	</div>
 </div>
+
+
 
 <hr />
 
+<h3>Debug Info:</h3>
+<ul id="resultsDebug"> </ul>
 
-<ul id="results"> </ul>
 </body>
 </html>
