@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script src="js/jquery-2.1.0.js"></script>
+  		<script src="js/myindex.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+        	
+<h1>Prog 272 Midterm, Dmitry Sundeev</h1>
+
+<p>A simple Node Express program allow users to load data from JSON file and retreve it back.</p>
+<button id="ImportReccords">Load JSON file to MongoDB</button>
+<button id="AddNew">Add New Poem to DB</button>
+<div id="AddNewDiv">
+	<input type="text" id="txtAuthor" value="" placeholder="Author" />
+    <input type="text" id="txtTitle" value="" placeholder="Title" />
+    <input type="text" id="txtKeyWords" value="" placeholder="Keywords splitted by comma: time,winter,poem"/>
+    <textarea id="txtContent" name="Content" rows="6" placeholder="Content"> </textarea>
+    <button id="btSubmitNewPoem">Submit</button>
+</div>
+
+
+<div id="filters">
+	<p>Keywords: <strong>time, poem, winter</strong> / or leave filter field <strong>blank</strong> to display all</p>
+	<input type="text" id="txtFilter" value=""/>
+	<button id="btFilter">Apply Filter</button>
+	<select name="#" id="select">
+		  <option selected="selected">Fill with data first</option>
+	</select>
+	<button id="btComboSelect" class="small">Show</button>
+	<button id="btComboDelete" class="small">Delete</button>
+	<p><button id="readAll">Fill Combo</button></p>
+</div>
+
+
+
+
+
+<div id="dataDisplay"> </div>
+
+
+<hr />
+
+
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
