@@ -9,6 +9,7 @@ var MongoData = (function() { 'use strict';
 		$("#ImportReccords").click(newRecord);
 		$("#AddNew").click(addNew);
 		$("#btSubmitNewPoem").click(addNewSubmit);
+		$("#btComboDelete").click(DeleteById);
 		
 	}
 
@@ -88,6 +89,7 @@ var MongoData = (function() { 'use strict';
 	};
 	
 	
+	
 	var queryFilteredCombo = function() {
 		var mID = $("#select").find('option:selected').attr('id');
 		console.log(mID);
@@ -104,10 +106,40 @@ var MongoData = (function() { 'use strict';
 				}
 			});
 		}
-		
-		
-		
 	};
+	
+	
+	
+	var DeleteById = function() {
+		var mID = $("#select").find('option:selected').attr('id');
+		console.log(mID);
+		
+		if (mID!=undefined)
+		{
+
+				$.ajax({
+					url : "/mongoid/"+mID,
+					type : "DELETE",
+					data : {
+						"id":mID
+					},
+					dataType : "json",
+					success : function(data) {
+						readData();											
+						console.log(data);
+						//$("#addResultPost").html(operandA + " + " + operandB + " = " + data.result);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.log(jqXHR.responseText);
+						console.log(textStatus);
+						console.log(errorThrown);
+						readData();
+					}
+				});
+		}
+	};
+	
+	
 	
 
 	var newRecord = function() {

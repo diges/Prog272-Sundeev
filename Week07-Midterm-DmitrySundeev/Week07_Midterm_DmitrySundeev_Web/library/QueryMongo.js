@@ -116,7 +116,7 @@ var QueryMongo = (function() {'use strict';
 		getDatabase(function getCol(database) {
 			var collection = database.collection(ColName);
 
-			collection.remove({"_id": new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
+			collection.remove({"_id": new ObjectId(id)}, {safe:true}, function(err, result) {
 				
 				if (err) {
 					response.send({'error':'An error has occurred - ' + err});
