@@ -13,15 +13,24 @@
 
 <p>A simple Node Express program allow users to load data from JSON file and retreve it back.</p>
 <button id="ImportReccords">Load JSON file to MongoDB</button>
+<button id="AddNew">Add New Poem to DB</button>
+<div id="AddNewDiv">
+	<input type="text" id="txtAuthor" value="" placeholder="Author" />
+    <input type="text" id="txtTitle" value="" placeholder="Title" />
+    <input type="text" id="txtKeyWords" value="" placeholder="Keywords splitted by comma: time,winter,poem"/>
+    <textarea id="txtContent" name="Content" rows="6" placeholder="Content"></textarea>
+    <button id="btSubmitNewPoem">Submit</button>
+</div>
+
 
 <div id="filters">
 	<p>Keywords: <strong>time, poem, winter</strong> / or leave filter field <strong>blank</strong> to display all</p>
-	<input type="text" id="txtFilter" value="">
+	<input type="text" id="txtFilter" value=""/>
 	<button id="btFilter">Apply Filter</button>
 	<select name="#" id="select">
 		  <option selected="selected">Fill with data first</option>
 	</select>
-	<button id="btComboSelect">Apply Selection</button>
+	<button id="btComboSelect" class="small">Show</button><button id="btComboDelete" class="small">Delete</button>
 	<p><button id="readAll">Fill Combo</button></p>
 </div>
 

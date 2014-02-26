@@ -5,19 +5,16 @@ body {
 #filters{
 	width:350px;
 	margin:20px;
-
 }
-#filters p{
-    margin:0;
-}
-
-#filters input,select{
-    width: 180px;
-}
-#filters button{
-    width: 120px;
+#filters p{margin:0;}
+#filters input,select{width: 180px;}
+#filters button{width: 120px;}
+#filters .small{
+	margin-left:2px;
+    width: 60px!important;
 }
 
+#ImportReccords, #AddNew {width:180px;}
 
 #dataDisplay
 {
@@ -59,4 +56,10 @@ body {
 	font-style:italic;
 	font-size:18px;
 }
+
+#AddNewDiv {
+	width:350px;
+	display:none;
+}
+#AddNewDiv * {width:100%}
 

@@ -3,15 +3,19 @@ var MongoData = (function() { 'use strict';
 	var mongoData = null;
 
 	function MongoData() {		
-		$("#readAll").click(loadData);
+		$("#readAll").click(readData);
 		$("#btFilter").click(queryFiltered);
 		$("#btComboSelect").click(queryFilteredCombo);
 		$("#ImportReccords").click(newRecord);
+		$("#AddNew").click(addNew);
+		$("#btSubmitNewPoem").click(addNewSubmit);
+		
 	}
 
-	var displayData = function(Datalength) {
+	var displayData = function() {
 		
 		$('#dataDisplay').empty();
+		var Datalength=mongoData.length;
 		
 		//var string="<div id='countTotal'>Total retrived from DB: "+Datalength+"</div>";
 		var string="<p id='countTotal'>Total retrived from DB: "+Datalength+"</p>";
@@ -33,7 +37,31 @@ var MongoData = (function() { 'use strict';
 
 	};
 	
-	var loadData = function() {
+	var addNew = function(){
+		$("#AddNewDiv").css("display", "block");
+	};
+	
+	var addNewSubmit = function () {
+		submitNewItem();
+		$("#txtAuthor").val("");
+		$("#txtTitle").val("");
+		$("#txtKeyWords").val("");
+		$("#txtContent").val("");
+		$("#AddNewDiv").css("display", "none");
+	};
+	
+	var submitNewItem = function () {
+		var jsonObj="{ " +
+			"'author':'"+$("#txtAuthor").val()+"', " +
+			"'title':'"+$("#txtTitle").val()+"', " +
+			"'keywords':["+$("#txtKeyWords").val()+"], " +
+			"'content':'"+$("#txtContent").val() +
+			"'}";
+		console.log(jsonObj);
+	};
+	
+	
+	var readData = function() {
 		$.getJSON('/readAll', function(data) {
 			console.log(data);
 			$("#resultsDebug").empty();
@@ -51,7 +79,7 @@ var MongoData = (function() { 'use strict';
 		$.getJSON('/keyword/'+url, function(data) {
 			mongoData = data;
 			console.log(data);
-			displayData(data.length);
+			displayData();
 			$("#resultsDebug").empty();
 			for (var i = 0; i < data.length; i++) {
 				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
@@ -67,11 +95,9 @@ var MongoData = (function() { 'use strict';
 		if (mID!=undefined)
 		{
 			$.getJSON('/mongoid/'+mID, function(data) {
-				//mongoData = JSON.parse(data);
 				mongoData = data;
 				console.log(mongoData);
-				var l=1;
-				displayData(l);
+				displayData();
 				$("#resultsDebug").empty();
 				for (var i = 0; i < 1; i++) {
 					$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
