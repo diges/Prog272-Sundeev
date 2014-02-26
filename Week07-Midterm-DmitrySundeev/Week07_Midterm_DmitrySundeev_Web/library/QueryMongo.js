@@ -108,6 +108,28 @@ var QueryMongo = (function() {'use strict';
 		});
 	};
 	
+	
+	
+	QueryMongo.prototype.deleteCollectionCombo = function(initResponse,id) {
+		console.log("DeleteCollectionCombo with ID filter called");
+		response = initResponse;
+		getDatabase(function getCol(database) {
+			var collection = database.collection(ColName);
+
+			collection.remove({"_id": new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
+				
+				if (err) {
+					response.send({'error':'An error has occurred - ' + err});
+				} else {
+					console.log('' + result + ' document(s) deleted');
+					response.send(response.body);
+				}
+				database.close();
+			});
+		});
+	};
+	
+	
 
 	return QueryMongo;
 

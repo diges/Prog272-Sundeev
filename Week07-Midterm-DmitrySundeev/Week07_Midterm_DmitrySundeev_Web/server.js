@@ -41,6 +41,10 @@ app.get('/mongoid/:id', function(request, response) { 'use strict';
 	queryMongo.getCollectionCombo(response, request.params.id);
 });
 
+app.delete('/mongoid/:id', function(request, response) { 'use strict';
+	queryMongo.deleteCollectionCombo(response, request.params.id);
+});
+
 app.get('/import', function(request, response) {'use strict';
   var fileContent = fs.readFileSync('./sources/Shakespeare_db.json', 'utf8');
   queryMongo.insertIntoCollection(JSON.parse(fileContent));
