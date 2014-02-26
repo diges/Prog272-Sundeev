@@ -13,7 +13,8 @@ var MongoData = (function() { 'use strict';
 		
 		$('#dataDisplay').empty();
 		
-		var string="<div id='countTotal'>Total retrived from DB: "+Datalength+"</div>";
+		//var string="<div id='countTotal'>Total retrived from DB: "+Datalength+"</div>";
+		var string="<p id='countTotal'>Total retrived from DB: "+Datalength+"</p>";
 		$('#dataDisplay').html(string);
 		
 		

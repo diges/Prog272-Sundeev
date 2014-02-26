@@ -12,24 +12,26 @@ var QueryMongo = (function() {'use strict';
 	
 	function QueryMongo() {
 		var urls = ['mongodb://127.0.0.1:27017/test',
-			'mongodb://192.168.2.19:27017/test',
-			'mongodb://192.168.2.34:27017/test',
-			'mongodb://192.168.56.101:27017/test'];
+			'mongodb://192.168.0.10:27017/test',
+			'mongodb://dbadmin:diges20@ds053728.mongolab.com:53728/dmitrydb'];
 
 		url = urls[0];
 	}
 
 	var getDatabase = function(func) {
 		console.log('Called getData');
-		if (database !== null) {
-			console.log('database exists');
-			database.open(function(err, database) {
-				if (err) {
-					throw err;
-				}
-				func(database);
-			});
-		} else {
+		
+		//have to comment this part to make it work with MongoLab
+		
+		//if (database !== null) {
+			//console.log('database exists');
+			//database.open(function(err, database) {
+				//if (err) {
+					//throw err;
+				//}
+				//func(database);
+			//});
+		//} else {
 			console.log('Querying for database');
 			console.log(url);
 			MongoClient.connect(url, function(err, databaseResult) {
@@ -39,7 +41,7 @@ var QueryMongo = (function() {'use strict';
 				database = databaseResult;
 				func(database);
 			});
-		}
+		//}
 	};
 	
 	QueryMongo.prototype.getCollectionCombo = function(initResponse,id) {
