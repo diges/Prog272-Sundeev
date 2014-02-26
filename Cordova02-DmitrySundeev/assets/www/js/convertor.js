@@ -22,13 +22,13 @@ function MyConverter() {
 
 	this.calc = function() {
 		var fr = parseFloat($("#fr").val());
-		$("#cellsius").html = that.FrToCelsius(fr).toFixed(2);
+		$("#cellsius").html(that.FrToCelsius(fr).toFixed(2));
 
 		var milles = parseFloat($("#milles").val());
-		$("#km").html = that.MilesToKm(milles).toFixed(2);
+		$("#km").html(that.MilesToKm(milles).toFixed(2));
 
 		var sq = parseFloat($("#sq").val());
-		$("#sqroot").html = that.sqRoot(sq).toFixed(2);
+		$("#sqroot").html(that.sqRoot(sq).toFixed(2));
 
 	};
 
