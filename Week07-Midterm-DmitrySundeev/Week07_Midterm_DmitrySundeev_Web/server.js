@@ -10,7 +10,7 @@ var express = require('express');
 var app = express();
 
 //Configuration
-app.configure(function(){
+app.configure(function(){'use strict';
 	app.set('port', process.env.PORT || 30025);
 	//app.set('views', __dirname + '/views');
 	//app.set('views engine', 'jade');
@@ -63,6 +63,6 @@ app.get('/', function(request, result) {'use strict';
 });
 
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function(){'use strict';
 	console.log('Listening on port ' + app.get('port'));
 });

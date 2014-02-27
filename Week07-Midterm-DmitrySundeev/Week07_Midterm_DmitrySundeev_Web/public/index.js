@@ -94,7 +94,7 @@ var MongoData = (function() { 'use strict';
 		var mID = $("#select").find('option:selected').attr('id');
 		console.log(mID);
 		
-		if (mID!=undefined)
+		if (mID!==undefined)
 		{
 			$.getJSON('/mongoid/'+mID, function(data) {
 				mongoData = data;
@@ -114,7 +114,7 @@ var MongoData = (function() { 'use strict';
 		var mID = $("#select").find('option:selected').attr('id');
 		console.log(mID);
 		
-		if (mID!=undefined)
+		if (mID!==undefined)
 		{
 
 				$.ajax({
