@@ -21,9 +21,9 @@
 }
 
 body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    /*-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    /*-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    /*-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -50,7 +50,8 @@ body {
     position:absolute;             /* position in the center of the screen */
     left:0;
     top:0;
-    bottom: 0;
+    width: 100%;
+    /*bottom: 0;
     right: 0;
     /* height:50px;                   /* text area height */
     /* width:225px;                   /* text area width */
@@ -117,7 +118,7 @@ h1 {
 
 
 #filters{
-	width:350px;
+	width:100%;
 	margin:20px;
 }
 #filters p{margin:0;}
@@ -143,7 +144,7 @@ h1 {
 
 #dataDisplay div {
 	border: solid black 1px;
-	width: 350px;
+	/*width: 300px;*/
     margin: 10px;
     padding:10px;
     float: left;
@@ -172,7 +173,7 @@ h1 {
 }
 
 #AddNewDiv {
-	width:350px;
+	width:100%;
 	display:none;
 }
 #AddNewDiv * {width:100%}
