@@ -5,7 +5,7 @@ describe("Asyncfile Unit test", function() {'use strict';
 					id: '530c00ee76e171c70c84b402'};
 
 	it("Tests that mongoData.readData retrives data from server by /readAll", function() {
-		// get is stubbed and never really called
+		// get is stubbed and never really called //shoud be testind how many parametrs
 		spyOn($, "get");
 		mongoData.readData('/readAll', function(data) {
 			console.log(data);
@@ -13,7 +13,7 @@ describe("Asyncfile Unit test", function() {'use strict';
 		expect($.get).toHaveBeenCalledWith('/readAll', 	jasmine.any(Function));
 	});
 	
-	it("Tests that mongoData.readData retrives data from server by /readAll", function() {
+	it("Tests that mongoData.readData retrives data from server by /readAll", function(done) {
 		// get is stubbed and never really called
 		spyOn($, "get").and.callThrough();
 		mongoData.readData('/readAll', function(responseText) {
@@ -21,6 +21,7 @@ describe("Asyncfile Unit test", function() {'use strict';
 			//var fineTime = $(responseText).filter('#paragraph04').html();
 			console.log(responseText.id);
 			expect(responseText.id).toBe('Fine time.');
+			done();
 		});
 		expect($.get).toHaveBeenCalledWith('/readAll', 	jasmine.any(Function));
 	});
