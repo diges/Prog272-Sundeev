@@ -1,15 +1,5 @@
-var MongoData.routes = (function() { 'use strict';
-	function MongoData() {		
-		$("#readAll").click(readData);
-		$("#btFilter").click(queryFiltered);
-		$("#btComboSelect").click(queryFilteredCombo);
-		$("#ImportReccords").click(newRecord);
-		$("#AddNew").click(addNew);
-		$("#btSubmitNewPoem").click(addNewSubmit);
-		$("#btComboDelete").click(DeleteById);
-		
-	}
-
+MongoData.interface = function() { 'use strict';
+	
 	var displayData = function() {
 		
 		$('#dataDisplay').empty();
@@ -57,4 +47,20 @@ var MongoData.routes = (function() { 'use strict';
 			"'}";
 		console.log(jsonObj);
 	};
+	
+	this.init  = function() {		
+		$("#readAll").click(MongoData.routes.readData);
+		$("#btFilter").click(MongoData.routes.queryFiltered);
+		$("#btComboSelect").click(MongoData.routes.queryFilteredCombo);
+		$("#ImportReccords").click(MongoData.routes.newRecord);
+		$("#AddNew").click(MongoData.routes.addNew);
+		$("#btSubmitNewPoem").click(MongoData.routes.addNewSubmit);
+		$("#btComboDelete").click(MongoData.routes.DeleteById);
+		
+	};
+	
+};
+
+$(document).ready(function() {	
+	MongoData.interface.init();		 
 });

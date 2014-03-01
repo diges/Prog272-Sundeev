@@ -41,7 +41,7 @@ app.get('/mongoid/:id', function(request, response) { 'use strict';
 	queryMongo.getCollectionCombo(response, request.params.id);
 });
 
-app.delete('/mongoid/:id', function(request, response) { 'use strict';
+app.get('/deleteid/:id', function(request, response) { 'use strict';
 	queryMongo.deleteCollectionCombo(response, request.params.id);
 });
 
@@ -51,11 +51,18 @@ app.get('/import', function(request, response) {'use strict';
   response.send({result:"success"});
 });
 
+app.get('/add', function(request, response) {'use strict';
+  var obj = request.obj;
+  queryMongo.insertIntoCollection(JSON.parse(obj));
+  response.send({result:"success"});
+});
+
 
 
 
 // Default.
 app.get('/', function(request, result) {'use strict';
+	//var html = fs.readFileSync(__dirname + '/public/index_old.html');
 	var html = fs.readFileSync(__dirname + '/public/index.html');
 	result.writeHeader(200, { "Content-Type" : "text/html" });
 	result.write(html);

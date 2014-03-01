@@ -1,9 +1,9 @@
-var MongoData.routes =  new function(data) { 'use strict';
+MongoData.routes =  new function() {
 
-	var mongoData = data;
+	//var mongoData = data;
 	
 	
-	var readData = function() {
+	this.readData = function() {'use strict';
 		$.getJSON('/readAll', function(data) {
 			console.log(data);
 			$("#resultsDebug").empty();
@@ -15,7 +15,7 @@ var MongoData.routes =  new function(data) { 'use strict';
 		});
 	};
 	
-	var queryFiltered = function() {
+	this.queryFiltered = function() {'use strict';
 		var url = $("#txtFilter").val();
 		
 		$.getJSON('/keyword/'+url, function(data) {
@@ -31,7 +31,7 @@ var MongoData.routes =  new function(data) { 'use strict';
 	
 	
 	
-	var queryFilteredCombo = function() {
+	this.queryFilteredCombo = function() {'use strict';
 		var mID = $("#select").find('option:selected').attr('id');
 		console.log(mID);
 		
@@ -51,39 +51,25 @@ var MongoData.routes =  new function(data) { 'use strict';
 	
 	
 	
-	var DeleteById = function() {
+	this.DeleteById = function() {'use strict';
 		var mID = $("#select").find('option:selected').attr('id');
 		console.log(mID);
 		
 		if (mID!==undefined)
 		{
-
-				$.ajax({
-					url : "/mongoid/"+mID,
-					type : "DELETE",
-					data : {
-						"id":mID
-					},
-					dataType : "json",
-					success : function(data) {
-						readData();											
-						console.log(data);
-						//$("#addResultPost").html(operandA + " + " + operandB + " = " + data.result);
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-						console.log(jqXHR.responseText);
-						console.log(textStatus);
-						console.log(errorThrown);
-						readData();
-					}
-				});
+			$.getJSON('/deleteid/'+mID, function(data) {
+				mongoData = data;
+				console.log(mongoData);
+				displayData();
+				$("#resultsDebug").empty();
+				for (var i = 0; i < 1; i++) {
+					$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
+				}
+			});
 		}
 	};
-	
-	
-	
 
-	var newRecord = function() {
+	this.newRecord = function() {
 		$.getJSON('/import', function(data) {
 			alert(data);
 		});

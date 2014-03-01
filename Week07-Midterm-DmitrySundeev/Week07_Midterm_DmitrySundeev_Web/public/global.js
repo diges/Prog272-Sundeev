@@ -1,3 +1,0 @@
-
-// Global abatement
-var MongoData =  {};
