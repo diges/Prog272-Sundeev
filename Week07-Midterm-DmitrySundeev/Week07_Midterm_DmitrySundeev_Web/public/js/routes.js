@@ -1,21 +1,21 @@
 MongoData.routes =  new function() {
 
-	//var mongoData = data;
+	var mongoData;
 	
 	
-	this.readData = function() {'use strict';
-		$.getJSON('/readAll', function(data) {
+	this.readData = function(callback) {'use strict';
+		
+		$.getJSON('/readAll', callback); /*function(data) {
 			console.log(data);
-			$("#resultsDebug").empty();
-			$("#select").empty();
-			for (var i = 0; i < data.length; i++) {
-				$("#select").append('<option id="'+ data[i]._id + '">' + data[i].title + '</option>');
-				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
-			}
-		});
+			res.send(data);
+			//return data; */
+		//};
+		
 	};
 	
-	this.queryFiltered = function() {'use strict';
+};
+	
+	/* this.queryFiltered = function() {'use strict';
 		var url = $("#txtFilter").val();
 		
 		$.getJSON('/keyword/'+url, function(data) {
@@ -74,6 +74,7 @@ MongoData.routes =  new function() {
 			alert(data);
 		});
 	};
+	*/
 
-};
+
 

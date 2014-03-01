@@ -1,21 +1,21 @@
 MongoData.routes =  new function() {
 
-	var mongoData;
+	//var mongoData = data;
 	
 	
-	this.readData = function(callback) {'use strict';
-		
-		$.getJSON('/readAll', callback); /*function(data) {
+	this.readData = function() {'use strict';
+		$.getJSON('/readAll', function(data) {
 			console.log(data);
-			res.send(data);
-			//return data; */
-		//};
-		
+			$("#resultsDebug").empty();
+			$("#select").empty();
+			for (var i = 0; i < data.length; i++) {
+				$("#select").append('<option id="'+ data[i]._id + '">' + data[i].title + '</option>');
+				$("#resultsDebug").append('<li>' + JSON.stringify(data[i]) + '</li>');
+			}
+		});
 	};
 	
-};
-	
-	/* this.queryFiltered = function() {'use strict';
+	this.queryFiltered = function() {'use strict';
 		var url = $("#txtFilter").val();
 		
 		$.getJSON('/keyword/'+url, function(data) {
@@ -74,7 +74,6 @@ MongoData.routes =  new function() {
 			alert(data);
 		});
 	};
-	*/
 
-
+};
 
