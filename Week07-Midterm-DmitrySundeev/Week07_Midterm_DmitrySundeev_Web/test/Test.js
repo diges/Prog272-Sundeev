@@ -10,7 +10,7 @@ describe("Asyncfile Unit test", function() {'use strict';
 		mongoData.readData('/readAll', function(data) {
 			console.log(data);
 		});
-		expect($.get).toHaveBeenCalledWith('/readAll', 	jasmine.any(Function));
+		expect($.get).toHaveBeenCalledWith('/readAll', jasmine.any(Function));
 	});
 	
 	it("Tests that mongoData.readData retrives data from server by /readAll", function(done) {
@@ -23,7 +23,7 @@ describe("Asyncfile Unit test", function() {'use strict';
 			expect(responseText.id).toBe('Fine time.');
 			done();
 		});
-		expect($.get).toHaveBeenCalledWith('/readAll', 	jasmine.any(Function));
+		expect($.get).toHaveBeenCalledWith('/readAll', jasmine.any(Function));
 	});
 	
 

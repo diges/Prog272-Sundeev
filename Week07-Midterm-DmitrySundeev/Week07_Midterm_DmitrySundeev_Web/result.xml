@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <checkstyle version="4.3">
+	<file name="public/js/func.js">
+		<error line="1" column="19" severity="error" message="Weird construction. Is &apos;new&apos; necessary?" source="jshint.W057" />
+	</file>
+	<file name="public/js/routes.js">
+		<error line="1" column="21" severity="error" message="Weird construction. Is &apos;new&apos; necessary?" source="jshint.W057" />
+	</file>
+	<file name="public/js/ui.js">
+		<error line="1" column="23" severity="error" message="Weird construction. Is &apos;new&apos; necessary?" source="jshint.W057" />
+	</file>
 </checkstyle>

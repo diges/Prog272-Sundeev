@@ -43,6 +43,7 @@ app.get('/mongoid/:id', function(request, response) { 'use strict';
 
 app.get('/deleteid/:id', function(request, response) { 'use strict';
 	queryMongo.deleteCollectionCombo(response, request.params.id);
+	response.send({result:"success"});
 });
 
 app.get('/import', function(request, response) {'use strict';
@@ -51,8 +52,9 @@ app.get('/import', function(request, response) {'use strict';
   response.send({result:"success"});
 });
 
-app.get('/add', function(request, response) {'use strict';
-  var obj = request.obj;
+app.post('/add', function(request, response) {'use strict';
+  var obj = request.body.obj;
+  console.log(obj);
   queryMongo.insertIntoCollection(JSON.parse(obj));
   response.send({result:"success"});
 });

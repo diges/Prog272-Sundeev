@@ -43,7 +43,7 @@ var MongoData = (function() { 'use strict';
 	};
 	
 	var addNewSubmit = function () {
-		submitNewItem();
+		submitNewObj();
 		$("#txtAuthor").val("");
 		$("#txtTitle").val("");
 		$("#txtKeyWords").val("");
@@ -51,7 +51,7 @@ var MongoData = (function() { 'use strict';
 		$("#AddNewDiv").css("display", "none");
 	};
 	
-	var submitNewItem = function () {
+	var submitNewObj = function () {
 		var jsonObj="{ " +
 			"'author':'"+$("#txtAuthor").val()+"', " +
 			"'title':'"+$("#txtTitle").val()+"', " +
@@ -59,6 +59,7 @@ var MongoData = (function() { 'use strict';
 			"'content':'"+$("#txtContent").val() +
 			"'}";
 		console.log(jsonObj);
+		//return jsonObj
 	};
 	
 	

@@ -14,6 +14,8 @@ module.exports = function(grunt) { 'use strict';
 					'**/angular.js',
 					'**/angular-mocks.js',
 					'**/jquery*.js',
+					'**/OldVersion/**',
+					'**/jasmine/**',
 					'**/bootstrap.min.js'
 				],
 				reporter: 'checkstyle',
