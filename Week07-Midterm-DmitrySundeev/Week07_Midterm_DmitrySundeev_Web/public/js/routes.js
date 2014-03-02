@@ -36,7 +36,7 @@ MongoData.routes =  new (function() {'use strict';
 	
 	this.addFromFile = function() {
 		$.getJSON('/import', function(data) {
-			alert(data);
+			alert("File has been imported to DB");
 		});
 	};
 

@@ -76,8 +76,10 @@ describe("Asyncfile Unit test", function() {'use strict';
 		});
 	});
 	
+
+	//ID in this test reffers to MongoLab DB
 	it("Integration test / request of queryFilteredCombo with ID filter parameter", function(done) {
-		MongoData.routes.queryFilteredCombo("5312e13f730d42d8141f4d72", function(responseText) {
+		MongoData.routes.queryFilteredCombo("530d0a864157225c0acad1b7", function(responseText) {
 			expect(responseText.length).toBe(1);
 			done();
 		});
