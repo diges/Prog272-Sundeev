@@ -24,5 +24,9 @@ MongoData.func =  new (function() {	'use strict';
 		//console.log(result);
 		return result;
 	};
+
+	this.loadFile = function(file, callback) {
+		$.get(file, callback);
+	};  
 	
 })();

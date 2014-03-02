@@ -18,9 +18,12 @@ app.configure(function(){'use strict';
 		//middleware
 	app.use(express.bodyParser());
 	//app.use(express.methodOverride());
-	//app.use(app.router); //order of routs,  call statics last
+	//app.use(app.router); //order of routs,  call static last
+	app.use("/library", express.static(__dirname + '/library'));
+	app.use("/t", express.static(__dirname + '/test'));
+	app.use("/sources", express.static(__dirname + '/sources'));
 	app.use("/", express.static(__dirname + '/public'));
-	//app.use("/", express.static(__dirname + '/library'));
+
 });
 
 
