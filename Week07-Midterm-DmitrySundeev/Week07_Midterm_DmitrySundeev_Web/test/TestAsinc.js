@@ -86,5 +86,14 @@ describe("Asyncfile Unit test", function() {'use strict';
 	});
 	
 	
+	it("func.wrapInQuotes test ", function() {
+		var string = MongoData.func.wrapInQuotes("hello,world");  	
+		expect(string).toEqual("\"hello\",\"world\"");
+	});
+	
+	it("func.wrapInQuotes test2 ", function() {
+		var string = MongoData.func.wrapInQuotes("hello world");  	
+		expect(string).toEqual("\"hello\",\"world\"");
+	});
 
 });

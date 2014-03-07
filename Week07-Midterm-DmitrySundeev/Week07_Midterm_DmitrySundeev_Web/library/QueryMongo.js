@@ -15,7 +15,7 @@ var QueryMongo = (function() {'use strict';
 			'mongodb://192.168.0.10:27017/test',
 			'mongodb://dbadmin:diges20@ds053728.mongolab.com:53728/dmitrydb'];
 
-		url = urls[2];
+		url = urls[0];
 	}
 
 	var getDatabase = function(func) {
@@ -71,7 +71,7 @@ var QueryMongo = (function() {'use strict';
 			// Send the collection to the client.
 			collection.find({"keywords":filter}).toArray(function(err, theArray) {
 				console.dir(theArray);
-				database.close();
+				//database.close();
 				response.send(theArray);
 			});
 		});
@@ -86,7 +86,7 @@ var QueryMongo = (function() {'use strict';
 			// Send the collection to the client.
 			collection.find({},{ _id: 1,title:1 }).toArray(function(err, theArray) {
 				console.dir(theArray);
-				database.close();
+				//database.close();
 				response.send(theArray);
 			});
 		});
@@ -102,7 +102,8 @@ var QueryMongo = (function() {'use strict';
 				if (err) {
 					throw err;
 				}
-				database.close();
+				//database.close();
+				response.send({'result':'success'});
 				console.log("insert succeeded");
 			});
 		});
@@ -124,7 +125,7 @@ var QueryMongo = (function() {'use strict';
 					console.log('' + result + ' document(s) deleted');
 					response.send(response.body);
 				}
-				database.close();
+				//database.close();
 			});
 		});
 	};
