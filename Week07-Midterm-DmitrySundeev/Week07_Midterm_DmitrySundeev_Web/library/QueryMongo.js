@@ -15,7 +15,7 @@ var QueryMongo = (function() {'use strict';
 			'mongodb://192.168.0.10:27017/test',
 			'mongodb://dbadmin:diges20@ds053728.mongolab.com:53728/dmitrydb'];
 
-		url = urls[0];
+		url = urls[2];
 	}
 
 	var getDatabase = function(func) {
