@@ -17,6 +17,26 @@ calculate.Publisher =(function(){
 	}
 	
 	
+	var pub = function(event) {
+		var object = {
+			a: getA(),
+			b: getB(),
+			html: function(value){
+				display(value);
+			},
+			operation:event.data.x
+		};
+		$.Topic('calculate').publish(object);
+	};
+	
+	var getA  = function(){
+		return parseInt($("#numberA").val());
+	};
+	
+	var getB= function(){
+		return parseInt($("#numberB").val());
+	};
+	
 	/*var addPublish = function() {
 		var AddDetails = {
 			a: getA(),
@@ -30,10 +50,8 @@ calculate.Publisher =(function(){
 		$.Topic('addModule').publish(AddDetails);
 	};*/
 	
-	
-	
-	var pub = function(event) {
-		var object = {
+	/*var MultPublish = function() {
+		var MultDetails = {
 			a: getA(),
 			b: getB(),
 			func: function(value){
@@ -41,21 +59,11 @@ calculate.Publisher =(function(){
 				display(value);
 				//$("#response").html(value);
 			},
-			operation:event.data.x
 		};
-		$.Topic('calculate').publish(object);
-	};
+		$.Topic('PubModule').publish(MultDetails);
+	};*/
 	
 	
-
-	
-	var getA  = function(){
-		return parseInt($("#numberA").val());
-	};
-	
-	var getB= function(){
-		return parseInt($("#numberB").val());
-	};
 	
 	return Publisher;
 	
