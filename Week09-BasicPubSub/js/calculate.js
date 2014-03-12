@@ -22,30 +22,33 @@ var calculate = {};
 
 calculate.Subscriber = (function() {
 	
-	var result;
+	//var result;
 	
 	function Subscriber() {
-		$.Topic('addModule').subscribe(function02);	
-		$.Topic('Results').subscribe(funcResults);
+		$.Topic('calculate').subscribe(mathAdd);	
+		//$.Topic('Results').subscribe(funcResults);
 				
 	}
 
-	function funcResults(data) {
+	/*function funcResults(data) {
 		console.log(data);
 		console.log(data.message);
 
-		data.acknowledge(result);
-	}
+		//data.acknowledge("test");
+		
+	} */
 	
 	
 	
 
-	function function02(data) {
-		console.log(data);
+	function mathAdd(data) {
+		console.log(data.operation);
 		console.log(data.a+data.b);
-		result=data.a+data.b;
+		var result=data.a+data.b;
+		data.func(result);
 		
 	}
+	
 	return Subscriber;
 	
 })();

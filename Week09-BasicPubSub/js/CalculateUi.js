@@ -6,26 +6,46 @@ calculate.Publisher =(function(){
 	
 	function Publisher(){
 		
-		$("#btAdd").click(addPublish);
-		
-		var response = {
-			message : 'Publisher constructor Called',
-			acknowledge : function(value) {
-				$("#response").html(value);
-			}
-		};
-		
-		$.Topic('Results').publish(response);
+		$("#btAdd").click({x:'add'}, pub);
+		$("#btMultiply").click({x:'multiply'}, pub);
+		$("#btSubtract").click({x:'substract'}, pub);
 		
 	}
 	
-	var addPublish = function() {
+	function display(value) {
+		$("#response").html(value);
+	}
+	
+	
+	/*var addPublish = function() {
 		var AddDetails = {
 			a: getA(),
-			b: getB()
+			b: getB(),
+			func: function(value){
+				// alert(value);
+				display(value);
+				//$("#response").html(value);
+			},
 		};
 		$.Topic('addModule').publish(AddDetails);
+	};*/
+	
+	
+	
+	var pub = function(event) {
+		var object = {
+			a: getA(),
+			b: getB(),
+			func: function(value){
+				// alert(value);
+				display(value);
+				//$("#response").html(value);
+			},
+			operation:event.data.x
+		};
+		$.Topic('calculate').publish(object);
 	};
+	
 	
 
 	
