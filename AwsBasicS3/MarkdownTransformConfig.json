@@ -1,5 +1,10 @@
 [
 	{
+		"pathToPython": "/usr/bin/python3.3",
+		"copyFrom": "/home/bcuser/Dropbox/www/md",
+		"copyTo": "/var/www/bc",
+		"filesToCopy": ["sonnet1", "sonnet2","sonnet3", "sonnet4","sonnet5"]
+	}, {
 		"pathToPython": "C:\\Python\\Python33\\Python.exe",
 		"copyFrom": "C:\\Users\\Charlie\\DropBox\\StackEdit",
 		"copyTo": "C:\\Users\\Public\\Documents\\TestSite\\Site",
@@ -19,10 +24,5 @@
 		"copyFrom": "C:\\Users\\Charlie\\DropBox\\StackEdit",
 		"copyTo": "C:\\Temp\\Site",
 		"filesToCopy": ["DropBox", "MongoMark", "Test", "index"]
-	}, {
-		"pathToPython": "/usr/bin/python3.3",
-		"copyFrom": "/home/bcuser/Temp/source",
-		"copyTo": "/home/bcuser/Temp/target",
-		"filesToCopy": ["Test", "index"]
 	}
 ]

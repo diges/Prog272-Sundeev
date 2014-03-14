@@ -1,5 +1,14 @@
 [
 	{
+		"pathToConfig": "/home/bcuser/Documents/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/config.json",
+		"reallyWrite": true,
+		"bucketName": "prog272.test",
+		"folderToWalk": "/var/www/bc",
+		"s3RootFolder": "www",
+		"createFolderToWalkOnS3": true,
+		"createIndex": true,
+		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
+	}, {
 		"pathToConfig": "/home/charlie/config.json",
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
@@ -23,15 +32,6 @@
 		"bucketName": "bucket01.elvenware.com",
 		"folderToWalk": "CloudNotes",
 		"s3RootFolder": "FilesFive",
-		"createFolderToWalkOnS3": true,
-		"createIndex": true,
-		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
-	}, {
-		"pathToConfig": "/home/bcuser/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/config.json",
-		"reallyWrite": true,
-		"bucketName": "prog272.test",
-		"folderToWalk": "/home/bcuser/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/views",
-		"s3RootFolder": "test",
 		"createFolderToWalkOnS3": true,
 		"createIndex": true,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
