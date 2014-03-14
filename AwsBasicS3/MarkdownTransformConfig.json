@@ -19,5 +19,10 @@
 		"copyFrom": "C:\\Users\\Charlie\\DropBox\\StackEdit",
 		"copyTo": "C:\\Temp\\Site",
 		"filesToCopy": ["DropBox", "MongoMark", "Test", "index"]
+	}, {
+		"pathToPython": "/usr/bin/python3.3",
+		"copyFrom": "/home/bcuser/Temp/source",
+		"copyTo": "/home/bcuser/Temp/target",
+		"filesToCopy": ["Test", "index"]
 	}
 ]

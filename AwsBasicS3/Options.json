@@ -27,10 +27,10 @@
 		"createIndex": true,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
 	}, {
-		"pathToConfig": "/home/bcuser/Documents/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/config.json",
+		"pathToConfig": "/home/bcuser/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/config.json",
 		"reallyWrite": true,
 		"bucketName": "prog272.test",
-		"folderToWalk": "Files",
+		"folderToWalk": "/home/bcuser/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/views",
 		"s3RootFolder": "test",
 		"createFolderToWalkOnS3": true,
 		"createIndex": true,
