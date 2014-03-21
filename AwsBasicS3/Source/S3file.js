@@ -8,6 +8,7 @@ var colName="filesCollection";
 var path = './md-test/';
 var pathOut = './md-test/new';
 
+//I actually don't need this 
 function pushUpMD (request, response) { 'use strict';
 	console.log('pushUpMD function called');
 	
@@ -23,6 +24,7 @@ function pushUpMD (request, response) { 'use strict';
 
 };
 
+//I actually don't need this 
 function pullDownMD (request, response) { 'use strict';
 	console.log('pullDownMD function called');
 	//var filter = { "title" : "sonnet1.md"};
@@ -30,7 +32,7 @@ function pullDownMD (request, response) { 'use strict';
 	queryMongo.readFileOut(response, colName, pathOut,filter);
 	
 	
-}
+};
 
 function pushUpFile (request, response) { 'use strict';
 	console.log('pushUpFile function called');
@@ -38,46 +40,53 @@ function pushUpFile (request, response) { 'use strict';
 	//var markdownName = ['sonnet1.md','sonnet2.md','sonnet3.md','sonnet4.md','sonnet5.md'];
 	var fileName = 'MarkdownTransformConfig.json, Options.json';
 	var filePath = '';
-	var coll = 'configs';
+	var colName = 'FilesConfig';
 	var type = 'convert';
 	var comments = 'AwsBasicS3-Home';
 	
 	
 	//response.send(request.params.files);
 	
-	fileNameArr=fileNameArr.replace(/ /g,'').split(",");
-	if (filePath===''){filePath='./'}// filePath=(filePath!='')?filePath:'./';
-		
+	filePath=(filePath!='')?filePath:'./';
+	
+	var fileNameArr=fileName.replace(/ /g,'').split(",");
 	var i = fileNameArr.length;
 	
 	while(i--){
 		
 		console.log(filePath+fileNameArr[i]);
 		
-		var meta = '{ path:'+filePath + ','+
-				 'name:'+fileNameArr[i] + ','+
-				 'type:'+type + ','+
-				 'dateOfImport:'+new Date().today() + " @ " + new Date().timeNow() + ','+
-				 'comments:'+comments + '}'
-	
-		console.log(meta);
+		var meta = '{ \"path\":\"'+filePath + '\",'+
+				 '\"name\":\"'+fileNameArr[i] + '\",'+
+				 '\"type\":\"'+type + '\",'+
+				 //'dateOfImport:'+new Date().today() +  ','+ //" @ " + new Date().timeNow() + ','+
+				 '\"comments\":\"'+comments + '\"}'
+		//console.log(meta);
+		meta=JSON.parse(meta);
 		
-		var jsonObject = queryMongo.readMarkDown(fileNameArr[i], path+markdownName[i],meta);
+		var jsonObject = queryMongo.readFile(fileNameArr[i], filePath+fileNameArr[i],meta);
 		queryMongo.insertIntoCollection(response, colName, jsonObject);
-		
-		
-		
-		
-		//console.log(path+markdownName[i]);
-		
-		
-		
-		//var jsonObject = queryMongo.readMarkDown(markdownName[i], path+markdownName[i]);
-	//queryMongo.insertIntoCollection(response, colName, jsonObject);
+
 	}
-	//
 
 };
+
+function pullDownFile (request, response) { 'use strict';
+	console.log('pullDownMD function called');
+	//var filter = { "title" : "sonnet1.md"};
+	var filter='';
+	
+	
+	queryMongo.readFileOut(response, colName, pathOut,filter);
+
+};
+
+function ReadCfg (request, response) { 'use strict';
+	console.log('pullDownMD function called');
+	//var filter = { "title" : "sonnet1.md"};
+	var filter='';
+	queryMongo.readFileOut(response, colName, pathOut,filter);
+}
 
 
 exports.pushUpMD = pushUpMD;

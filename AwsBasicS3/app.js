@@ -98,7 +98,7 @@ app.get('/getMDFileOut', function(request, response) { 'use strict';
 });
 
 app.get('/insertFile', function(request, response) { 'use strict';
-	console.log('getMDFileOut called');
+	console.log('insertFile called');
 	s3files.pushUpFile(request, response);
 });
 

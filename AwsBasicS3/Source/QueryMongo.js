@@ -188,7 +188,7 @@ var QueryMongo = (function() {'use strict';
 	};
 
 	QueryMongo.prototype.readFile = function(title, fileName, metaOBJ) {
-		console.log("readMarkDown: " + fileName);
+		console.log("read file: " + fileName);
 		var myJson = {
 			"title": null,
 			"fileContent": null,
@@ -200,6 +200,7 @@ var QueryMongo = (function() {'use strict';
 		myJson.fileContent = fileContent;
 		myJson.meta = metaOBJ;
 		
+		console.log(myJson);
 
 		return myJson;
 	};
