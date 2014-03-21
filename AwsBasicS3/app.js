@@ -9,6 +9,7 @@ var http = require('http');
 var path = require('path');
 var walkDirs = require("./Source/WalkDirs").walkDirs;
 var s3Code = require("./Source/S3Code");
+var s3files = require("./Source/S3file");
 var fs = require("fs");
 var exec = require('child_process').exec;
 
@@ -78,6 +79,26 @@ app.get('/listBuckets', function(request, response) {'use strict';
 });
 
 app.get('/copyToS3', function(request, response) {'use strict';
+	console.log(typeof request.query.options);	
+	var options = JSON.parse(request.query.options);
+	console.log(options);
+	walkDirs(options, response);
+});
+
+app.get('/insertMDsToMongo', function(request, response) {'use strict';
+	//console.log(typeof request.query.options);	
+	//var options = JSON.parse(request.query.options);
+	console.log("insertMDsToMongo called");
+	s3files.pushUpMD(request, response);
+});
+
+app.get('/getMDFileOut', function(request, response) { 'use strict';
+	console.log('getMDFileOut called');
+	s3files.pullDownMD(request, response);
+});
+
+
+app.get('/getConfigsFromMongo', function(request, response) {'use strict';
 	console.log(typeof request.query.options);	
 	var options = JSON.parse(request.query.options);
 	console.log(options);
