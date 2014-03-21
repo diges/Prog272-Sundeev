@@ -97,6 +97,11 @@ app.get('/getMDFileOut', function(request, response) { 'use strict';
 	s3files.pullDownMD(request, response);
 });
 
+app.get('/insertFile', function(request, response) { 'use strict';
+	console.log('getMDFileOut called');
+	s3files.pushUpFile(request, response);
+});
+
 
 app.get('/getConfigsFromMongo', function(request, response) {'use strict';
 	console.log(typeof request.query.options);	

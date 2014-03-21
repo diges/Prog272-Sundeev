@@ -187,6 +187,24 @@ var QueryMongo = (function() {'use strict';
 		return myJson;
 	};
 
+	QueryMongo.prototype.readFile = function(title, fileName, metaOBJ) {
+		console.log("readMarkDown: " + fileName);
+		var myJson = {
+			"title": null,
+			"fileContent": null,
+			"meta": null
+		};
+
+		myJson.title = title;
+		var fileContent = fs.readFileSync(fileName, 'utf8');
+		myJson.fileContent = fileContent;
+		myJson.meta = metaOBJ;
+		
+
+		return myJson;
+	};
+
+
 
 	QueryMongo.prototype.readFileOut = function(response, myCollectionName, path, filter) {
 		console.log("readFileOut called");
