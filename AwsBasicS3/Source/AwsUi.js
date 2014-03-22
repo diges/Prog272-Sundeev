@@ -5,6 +5,8 @@ define(['jquery'], function() {'use strict';
     var transformOptions = null;
     var dataIndex = 0;
     var dataIndexTransform = 0;
+    var cfgCollectionName = 'FilesConfig'; //Name of collection where I keep my configs
+    var MDsCollectionName = 'filesCollection';
 
     function AwsUi() {
         $("#listBuckets").click(listBuckets);
@@ -16,9 +18,93 @@ define(['jquery'], function() {'use strict';
         $("#backButton").click(backward);
 
         $("#buildAll").click(buildAll);
+        
+        $("#uploadMD").click(uploadMD);
+        $("#downloadMD").click(downloadMD);        
+        $("#getConfig").click(getConfig);
+        $("#uploadConfig").click(uploadConfig);
+        
         getBuildConfig();
         getOptions();
     }
+
+    var getConfig = function() {
+        $.getJSON("/getBuildConfigMongo", {
+            filter : {"meta.name":"MarkdownTransformConfig.json"},
+            collname : cfgCollectionName
+        }, function(result) {
+			
+			transformOptions = result;
+            displayTransformConfig(transformOptions[dataIndexTransform]);
+			
+            $("#buildData").empty();
+            var fileArray = result.data.split("\n");
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
+        }).fail(function(a) {
+            alert(JSON.stringify(a));
+        });
+    };
+    
+    
+    var uploadConfig = function() {
+        $.getJSON("/insertFile", {
+            filename : 'MarkdownTransformConfig.json, Options.json',
+			path : '',
+			collname : cfgCollectionName,
+			type : 'a',
+			comments : 'AwsBasicS3-local'
+        }, function(result) {
+			
+            $("#buildData").empty();
+            var fileArray = result.data.split("\n");
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
+        });
+    };
+    
+    
+    var uploadMD = function() {
+        $.getJSON("/insertMDsToMongo", {
+            path : '/home/bcuser/Dropbox/www/md'+'/',
+            collname : MDsCollectionName,
+            markdownarr : ['sonnet1.md','sonnet2.md','sonnet3.md','sonnet4.md','sonnet5.md']
+        }, function(result) {
+            $("#buildData").empty();
+            var fileArray = result.data.split("\n");
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
+        });
+    };
+    
+    
+    var downloadMD = function() {
+        $.getJSON("/getMDFileOut", {
+            path : '/home/bcuser/Dropbox/www/md/2'+'/',
+            collname : MDsCollectionName,
+            filter : ''
+        }, function(result) {
+            $("#buildData").empty();
+            var fileArray = result.data.split("\n");
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
+        });
+    };
+    
+    
+    
 
     var buildAll = function() {
         $.getJSON("/buildAll", {

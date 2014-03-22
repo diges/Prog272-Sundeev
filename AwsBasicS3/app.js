@@ -9,7 +9,7 @@ var http = require('http');
 var path = require('path');
 var walkDirs = require("./Source/WalkDirs").walkDirs;
 var s3Code = require("./Source/S3Code");
-var s3files = require("./Source/S3file");
+var Myfile = require("./Source/Myfile");
 var fs = require("fs");
 var exec = require('child_process').exec;
 
@@ -70,7 +70,7 @@ app.get('/getOptions', function(request, response) {'use strict';
 });
 
 app.get('/listBuckets', function(request, response) {'use strict';
-    console.log("ListBuckets called");
+    console.log("app.js:ListBuckets called");
     console.log(request.query);
 	var options = JSON.parse(request.query.options);
 	console.log("ListBuckets: ", options.pathToConfig);
@@ -86,32 +86,28 @@ app.get('/copyToS3', function(request, response) {'use strict';
 });
 
 app.get('/insertMDsToMongo', function(request, response) {'use strict';
-	//console.log(typeof request.query.options);	
-	//var options = JSON.parse(request.query.options);
-	console.log("insertMDsToMongo called");
-	s3files.pushUpMD(request, response);
+	console.log("app.js:insertMDsToMongo called");
+	Myfile.pushUpMD(request, response);
 });
 
 app.get('/getMDFileOut', function(request, response) { 'use strict';
-	console.log('getMDFileOut called');
-	s3files.pullDownMD(request, response);
+	console.log('app.js:getMDFileOut called');
+	Myfile.pullDownMD(request, response);
 });
 
 app.get('/insertFile', function(request, response) { 'use strict';
-	console.log('insertFile called');
-	s3files.pushUpFile(request, response);
+	console.log('app.js:insertFile called');
+	Myfile.pushUpFile(request, response);
 });
 
 
 app.get('/getConfigsFromMongo', function(request, response) {'use strict';
-	console.log(typeof request.query.options);	
-	var options = JSON.parse(request.query.options);
-	console.log(options);
-	walkDirs(options, response);
+	console.log('app.js:getConfigsFromMongo called');
+	Myfile.pullDownFile(request, response);
 });
 
 var buildAll = function(response, config, index) { 'use strict';
-	console.log("BuildAll was called");
+	console.log("app.js:BuildAll was called");
 	// var config = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');	
 	// config = JSON.parse(config);
 	var command = config[index].pathToPython + " MarkdownTransform.py -i " + index;	
@@ -130,17 +126,32 @@ var buildAll = function(response, config, index) { 'use strict';
 };
 
 app.get('/buildAll', function(request, response) { 'use strict';
-	console.log("buildAll called");	
+	console.log("app.js:buildAll called");	
 	var options = JSON.parse(request.query.options);
 	buildAll(response, options, request.query.index);
 });
 
 app.get('/getBuildConfig', function(request, response) { 'use strict';
-	console.log('getBuildConfig called');
+	console.log('app.js:getBuildConfig called');
 	var options = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
 	options = JSON.parse(options);
 	response.send(options);
 });
+
+//gets config from Mongo
+app.get('/getBuildConfigMongo', function(request, response) { 'use strict';
+	console.log('app.js:getBuildConfigMongo called');
+	//var collName  = request.query.collname;
+	//var fName  = request.query.fname;
+	var options = Myfile.readConfig(request, response);
+	
+	//var options = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
+	//options = JSON.parse(options);
+	response.send(options);
+});
+
+
+
 
 http.createServer(app).listen(app.get('port'), function() {'use strict';
 	console.log('Express server listening on port ' + app.get('port'));

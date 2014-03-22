@@ -172,6 +172,27 @@ var QueryMongo = (function() {'use strict';
 			});
 		});
 	};
+	
+	
+		
+		// Get a document from a collection with filter
+	QueryMongo.prototype.getDocumentsAll = function(initResponse, myCollectionName,filter) {
+		console.log("QueryMongo.getDocumentsAll called");
+		response = initResponse; //dd
+		getDatabase(function getCol(database) {
+			var collection = database.collection(myCollectionName);
+
+			// Send the collection to the client.
+			collection.find(filter).limit(1).toArray(function(err, theArray) {
+				console.dir(theArray);
+				//if (callClose) { closeDatabase(); } //what  is header
+				response.send(theArray[0].fileContent);
+			});
+		});
+	};
+	
+	
+	
 
 	QueryMongo.prototype.readMarkDown = function(title, fileName) {
 		console.log("readMarkDown: " + fileName);
@@ -187,6 +208,7 @@ var QueryMongo = (function() {'use strict';
 		return myJson;
 	};
 
+	//second version of almost the same function as readMarkDown
 	QueryMongo.prototype.readFile = function(title, fileName, metaOBJ) {
 		console.log("read file: " + fileName);
 		var myJson = {
@@ -220,8 +242,30 @@ var QueryMongo = (function() {'use strict';
 				var i = theArray.length;
 				//read all docs to files
 				
+				var mypath=path;
+				
 				while (i--){
-					writeFile(response,path+theArray[i].title,theArray[i].text);
+
+					if (theArray[i].meta!== undefined) {
+						if ((path==='')||((path === undefined))) {
+							console.log('Path readed from Meta Data');
+							mypath=theArray[i].meta.path;
+						}
+						
+						//by default I want to use a name of the file from meta.name if it is exist
+						
+						if ((theArray[i].meta.name!=='')||((theArray[i].meta.name !== undefined))) {
+							console.log('File Name readed from MetaData');
+							writeFile(response,mypath+theArray[i].meta.name,theArray[i].fileContent);
+							
+						} else {
+							console.log('==Title==used==as==the==NameOfFile==');
+							writeFile(response,mypath+theArray[i].title,theArray[i].fileContent);
+						}
+					} else {
+						writeFile(response,mypath+theArray[i].title,theArray[i].text); //this need to be fixed later !!!
+					}
+					
 				}
 				
 				response.send({ result: "Success", mongoDocCount: theArray.length });
@@ -229,9 +273,6 @@ var QueryMongo = (function() {'use strict';
 			});
 		});
 	};
-	
-	
-	
 	
 
 	var writeFile = function(response, fileNime, jsonString) {
