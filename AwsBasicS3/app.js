@@ -147,9 +147,16 @@ app.get('/getBuildConfigMongo', function(request, response) { 'use strict';
 	
 	//var options = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
 	//options = JSON.parse(options);
-	response.send(options);
+	//response.send(options);
 });
 
+
+//Save config to Mongo
+app.get('/saveConfigMongo', function(request, response) { 'use strict';
+	console.log('app.js:saveConfigMongo called');
+	Myfile.saveConfigMongo(request, response);
+
+});
 
 
 

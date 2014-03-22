@@ -1,7 +1,30 @@
+//this file to isolate most of my code in one plase as much as possible
+
 
 var fs = require('fs');
 var qm = require('./QueryMongo');
 var queryMongo = qm.QueryMongo; 
+
+// function updates collection
+function saveConfigMongo(request, response) { 'use strict';
+	console.log('MyFile.js:saveConfigMongo function called');
+	var filter  = request.query.filter;
+	var object  = request.query.object;
+	var colName  = request.query.collname;
+	
+	
+	    var objectToInsert = { 
+	        query: filter,
+	        update: {
+	            $set: { "fileContent" : object }
+	        }         
+	    };
+
+	queryMongo.updateCollection(response, objectToInsert, colName);
+	
+}
+
+
 
 
 
@@ -13,6 +36,7 @@ function readConfig (request, response) { 'use strict';
 	console.log(colName);
 
 	queryMongo.getDocumentsAll(response, colName,filter);
+
 };
 
 
@@ -73,7 +97,7 @@ function pushUpFile (request, response) { 'use strict';
 		var meta = '{ \"path\":\"'+filePath + '\",'+
 				 '\"name\":\"'+fileNameArr[i] + '\",'+
 				 '\"type\":\"'+type + '\",'+
-				 //'\"dateOfImport\":\"'+new Date().today() +  '@' + new Date().timeNow() + '\",'+
+				 //'\"dateOfImport\":\"'+new Date().now() +  '@' + new Date().timeNow() + '\",'+
 				 '\"comments\":\"'+comments + '\"}'
 		meta=JSON.parse(meta);
 		
@@ -101,16 +125,9 @@ function pullDownFile (request, response) { 'use strict';
 };
 
 
-function ReadCfg (request, response) { 'use strict';
-	console.log('MyFile.js:pullDownMD function called');
-	//var filter = { "title" : "sonnet1.md"};
-	var filter='';
-	queryMongo.readFileOut(response, colName, pathOut,filter);
-}
-
-
 exports.pushUpMD = pushUpMD;
 exports.pullDownMD = pullDownMD;
 exports.pushUpFile = pushUpFile;
 exports.pullDownFile =pullDownFile;
 exports.readConfig=readConfig;
+exports.saveConfigMongo=saveConfigMongo;

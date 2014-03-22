@@ -11,7 +11,6 @@ define(['jquery'], function() {'use strict';
     function AwsUi() {
         $("#listBuckets").click(listBuckets);
         $("#copyToS3").click(copyToS3);
-        $("#getOptions").click(getOptions);
         $("#transformForwardButton").click(forwardTransform);
         $("#tranformBackButton").click(backwardTransform);
         $("#forwardButton").click(forward);
@@ -24,10 +23,81 @@ define(['jquery'], function() {'use strict';
         $("#getConfig").click(getConfig);
         $("#uploadConfig").click(uploadConfig);
         
+        $("#getOptions").click(getConfigOptions);
+        
+        $("#saveTransformToMongo").click(saveTransformToMongo);
+        //$("#saveTransformToFile").click(saveTransformToFile);
+        
+        $("#saveOptionsToMongo").click(saveOptionsToMongo);
+        //$("#saveOptionsToFile").click(saveOptionsToFile);
+        
         getBuildConfig();
         getOptions();
     }
+	
+	
+	var saveTransformToMongo = function() {
+		
+        transformOptions[dataIndexTransform].pathToPython=$("#pathToPython").val();
+        transformOptions[dataIndexTransform].copyFrom=$("#copyFrom").val();
+        transformOptions[dataIndexTransform].copyTo=$("#copyTo").val();
+        transformOptions[dataIndexTransform].filesToCopy=$("#filesToCopy").val();
 
+
+		console.log(transformOptions);
+		console.log(options);
+        $.getJSON("/saveConfigMongo", {
+			filter : {"meta.name":"MarkdownTransformConfig.json"},
+            collname : cfgCollectionName,
+            object : transformOptions
+        }, function(result) {
+			
+            //$("#buildData").empty();
+            //var fileArray = result.data.split("\n");
+            //for (var i = 0; i < fileArray.length; i++) {
+                //if (fileArray[i].length > 0) {
+                    //$("#buildData").append("<li>" + fileArray[i] + "</li>");
+                //}
+            //}
+        });
+        
+    };
+    
+    var saveOptionsToMongo = function() {
+		
+        options.pathToConfig=$("#pathToConfig").val();
+        $("#reallyWrite").val(options.reallyWrite ? "true" : "false");
+        $("#bucketName").val(options.bucketName);
+        $("#folderToWalk").val(options.folderToWalk);
+        $("#s3RootFolder").val(options.s3RootFolder);
+        $("#createFolderToWalkOnS3").val(options.createFolderToWalkOnS3 ? "true" : "false");
+        $("#createIndex").val(options.createIndex ? "true" : "false");
+        $("#filesToIgnore").val(options.filesToIgnore);
+
+
+		console.log(transformOptions);
+		console.log(options);
+        $.getJSON("/saveConfigMongo", {
+			filter : {"meta.name":"MarkdownTransformConfig.json"},
+            collname : cfgCollectionName,
+            object : transformOptions
+        }, function(result) {
+			
+            //$("#buildData").empty();
+            //var fileArray = result.data.split("\n");
+            //for (var i = 0; i < fileArray.length; i++) {
+                //if (fileArray[i].length > 0) {
+                    //$("#buildData").append("<li>" + fileArray[i] + "</li>");
+                //}
+            //}
+        });
+        
+    };
+	
+	
+	
+	
+	//uses /getBuildConfigMongo with parameters to select configs for particular file - MarkdownTransformConfig.json
     var getConfig = function() {
         $.getJSON("/getBuildConfigMongo", {
             filter : {"meta.name":"MarkdownTransformConfig.json"},
@@ -37,17 +107,35 @@ define(['jquery'], function() {'use strict';
 			transformOptions = result;
             displayTransformConfig(transformOptions[dataIndexTransform]);
 			
-            $("#buildData").empty();
-            var fileArray = result.data.split("\n");
-            for (var i = 0; i < fileArray.length; i++) {
-                if (fileArray[i].length > 0) {
-                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
-                }
-            }
+            //$("#buildData").empty();
+            //var fileArray = result.data.split("\n");
+            //for (var i = 0; i < fileArray.length; i++) {
+                //if (fileArray[i].length > 0) {
+                    //$("#buildData").append("<li>" + fileArray[i] + "</li>");
+                //}
+            //}
         }).fail(function(a) {
             alert(JSON.stringify(a));
         });
     };
+    
+    
+    //uses /getBuildConfigMongo with parameters to select configs for particular file - Options.json
+    var getConfigOptions = function() {
+        $.getJSON("/getBuildConfigMongo", {
+            filter : {"meta.name":"Options.json"},
+            collname : cfgCollectionName
+        }, function(result) {
+			
+			options = result;
+            $('#documentCount').html(options.length);
+            displayOptions(options[0]);
+            
+        }).fail(function(a) {
+            alert(JSON.stringify(a));
+        });
+    };
+    
     
     
     var uploadConfig = function() {
@@ -89,7 +177,7 @@ define(['jquery'], function() {'use strict';
     
     var downloadMD = function() {
         $.getJSON("/getMDFileOut", {
-            path : '/home/bcuser/Dropbox/www/md/2'+'/',
+            path : '/home/bcuser/Dropbox/www/md'+'/',
             collname : MDsCollectionName,
             filter : ''
         }, function(result) {
@@ -130,22 +218,22 @@ define(['jquery'], function() {'use strict';
     };
 
     var displayTransformConfig = function(options) {
-        $("#pathToPython").html(options.pathToPython);
-        $("#copyFrom").html(options.copyFrom);
-        $("#copyTo").html(options.copyTo);
-        $("#filesToCopy").html(options.filesToCopy);
+        $("#pathToPython").val(options.pathToPython);
+        $("#copyFrom").val(options.copyFrom);
+        $("#copyTo").val(options.copyTo);
+        $("#filesToCopy").val(options.filesToCopy);
     };
 
     var displayOptions = function(options) {
         $("#currentDocument").html(dataIndex + 1);
-        $("#pathToConfig").html(options.pathToConfig);
-        $("#reallyWrite").html(options.reallyWrite ? "true" : "false");
-        $("#bucketName").html(options.bucketName);
-        $("#folderToWalk").html(options.folderToWalk);
-        $("#s3RootFolder").html(options.s3RootFolder);
-        $("#createFolderToWalkOnS3").html(options.createFolderToWalkOnS3 ? "true" : "false");
-        $("#createIndex").html(options.createIndex ? "true" : "false");
-        $("#filesToIgnore").html(options.filesToIgnore);
+        $("#pathToConfig").val(options.pathToConfig);
+        $("#reallyWrite").val(options.reallyWrite ? "true" : "false");
+        $("#bucketName").val(options.bucketName);
+        $("#folderToWalk").val(options.folderToWalk);
+        $("#s3RootFolder").val(options.s3RootFolder);
+        $("#createFolderToWalkOnS3").val(options.createFolderToWalkOnS3 ? "true" : "false");
+        $("#createIndex").val(options.createIndex ? "true" : "false");
+        $("#filesToIgnore").val(options.filesToIgnore);
     };
 
     var getBuildConfig = function() {
@@ -156,6 +244,7 @@ define(['jquery'], function() {'use strict';
             alert(JSON.stringify(a));
         });
     };
+    
     var getOptions = function() {
         $.getJSON("/getOptions", function(optionsInit) {
             options = optionsInit;

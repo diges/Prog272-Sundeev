@@ -157,11 +157,11 @@ var QueryMongo = (function() {'use strict';
 	};
 	
 		// Will create collection if it does not exist
-	QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
+	QueryMongo.prototype.updateCollection = function(response, objectToInsert,myCollectionName) {
 		console.log("QueryMongo.updateCollection called");
 		getDatabase(function getCol(database) {
 		    console.log("In the update callback");
-			var collection = database.collection(collectionName);
+			var collection = database.collection(myCollectionName);
 			collection.update(objectToInsert.query, objectToInsert.update, function(err, docs) {
 				if (err) {
 					throw err;
@@ -184,8 +184,10 @@ var QueryMongo = (function() {'use strict';
 
 			// Send the collection to the client.
 			collection.find(filter).limit(1).toArray(function(err, theArray) {
-				console.dir(theArray);
-				//if (callClose) { closeDatabase(); } //what  is header
+				console.log("The Array in getDocumentsAll: " + JSON.stringify(theArray, null, 4));
+				if (callClose) { closeDatabase(); } //what  is header
+				//console.log(typeof response);
+				//console.log(typeof theArray);
 				response.send(theArray[0].fileContent);
 			});
 		});

@@ -30,3 +30,11 @@ a {
 	background-color: #00BBFF;
 	margin: 1%;
 }
+.displayKing input {
+	display: inline-block;
+	padding-left: 3px;
+	width:65%;    
+	border: solid black 1px;
+	background-color: #BBFFFF;
+	margin: 1%;
+}
