@@ -314,10 +314,10 @@ var QueryMongo = (function() {'use strict';
 		});
 	};
 
-	QueryMongo.prototype.removeAll = function(response) {
+	QueryMongo.prototype.removeAll = function(response,myCollectionName) {
 		console.log("QueryMongo.removeAll called");
 		getDatabase(function getCol(database) {
-			var collection = database.collection(collectionName);
+			var collection = database.collection(myCollectionName);
 			collection.remove(function(err, data) {
 				if (err) {
 					throw err;

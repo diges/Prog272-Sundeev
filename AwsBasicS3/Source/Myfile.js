@@ -5,6 +5,27 @@ var fs = require('fs');
 var qm = require('./QueryMongo');
 var queryMongo = qm.QueryMongo; 
 
+
+// function saves changes to config File
+function saveConfigToFile(request, response){
+	console.log('MyFile.js:saveConfigToFile function called');
+	var object  = JSON.stringify(request.query.object, null, 4);
+	console.log(object);
+	var fName  = request.query.fname;
+	
+	fs.writeFile(fName, object, function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log(fName+ " was saved!");
+			response.send ({ data: fName+ " was saved!" });
+		}
+	});
+	
+	
+}
+
+
 // function updates collection
 function saveConfigMongo(request, response) { 'use strict';
 	console.log('MyFile.js:saveConfigMongo function called');
@@ -12,19 +33,15 @@ function saveConfigMongo(request, response) { 'use strict';
 	var object  = request.query.object;
 	var colName  = request.query.collname;
 	
-	
-	    var objectToInsert = { 
-	        query: filter,
-	        update: {
-	            $set: { "fileContent" : object }
-	        }         
-	    };
+	var objectToInsert = { 
+		query: filter,
+		update: {
+			$set: { "fileContent" : object }
+		}         
+	};
 
 	queryMongo.updateCollection(response, objectToInsert, colName);
-	
 }
-
-
 
 
 
@@ -85,6 +102,9 @@ function pushUpFile (request, response) { 'use strict';
 	var type = request.query.type;
 	var comments = request.query.comments;
 	
+	//clear collection
+		queryMongo.removeAll(response, colName)
+	
 	filePath=(filePath!=='')?filePath:'./';
 	
 	var fileNameArr=fileName.replace(/ /g,'').split(",");
@@ -102,6 +122,7 @@ function pushUpFile (request, response) { 'use strict';
 		meta=JSON.parse(meta);
 		
 		var jsonObject = queryMongo.readFile(fileNameArr[i], filePath+fileNameArr[i],meta);
+		
 		queryMongo.insertIntoCollection(response, colName, jsonObject);
 
 	}
@@ -131,3 +152,4 @@ exports.pushUpFile = pushUpFile;
 exports.pullDownFile =pullDownFile;
 exports.readConfig=readConfig;
 exports.saveConfigMongo=saveConfigMongo;
+exports.saveConfigToFile=saveConfigToFile;

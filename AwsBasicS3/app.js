@@ -141,13 +141,7 @@ app.get('/getBuildConfig', function(request, response) { 'use strict';
 //gets config from Mongo
 app.get('/getBuildConfigMongo', function(request, response) { 'use strict';
 	console.log('app.js:getBuildConfigMongo called');
-	//var collName  = request.query.collname;
-	//var fName  = request.query.fname;
 	var options = Myfile.readConfig(request, response);
-	
-	//var options = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
-	//options = JSON.parse(options);
-	//response.send(options);
 });
 
 
@@ -155,6 +149,13 @@ app.get('/getBuildConfigMongo', function(request, response) { 'use strict';
 app.get('/saveConfigMongo', function(request, response) { 'use strict';
 	console.log('app.js:saveConfigMongo called');
 	Myfile.saveConfigMongo(request, response);
+
+});
+
+//Save config to File
+app.get('/saveConfigToFile', function(request, response) { 'use strict';
+	console.log('app.js:saveConfigMongo called');
+	Myfile.saveConfigToFile(request, response);
 
 });
 

@@ -26,30 +26,66 @@ define(['jquery'], function() {'use strict';
         $("#getOptions").click(getConfigOptions);
         
         $("#saveTransformToMongo").click(saveTransformToMongo);
-        //$("#saveTransformToFile").click(saveTransformToFile);
+        $("#saveTransformToFile").click(saveTransformToFile);
         
         $("#saveOptionsToMongo").click(saveOptionsToMongo);
-        //$("#saveOptionsToFile").click(saveOptionsToFile);
+        $("#saveOptionsToFile").click(saveOptionsToFile);
         
         getBuildConfig();
         getOptions();
     }
 	
+   
+
 	
-	var saveTransformToMongo = function() {
+	//Save updates Transform Config section to file
+	var saveTransformToFile=function(){
 		
-        transformOptions[dataIndexTransform].pathToPython=$("#pathToPython").val();
-        transformOptions[dataIndexTransform].copyFrom=$("#copyFrom").val();
-        transformOptions[dataIndexTransform].copyTo=$("#copyTo").val();
-        transformOptions[dataIndexTransform].filesToCopy=$("#filesToCopy").val();
+		UpdateTransformObject();
+		
+		$.getJSON("/saveConfigToFile", {
+			fname : './MarkdownTransformConfig.json',            
+            object : transformOptions
+        }, function(result) {
+			
+            $("#buildData").empty();
+            var fileArray = result.data.split("\n");
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
+        });
+	}
+	
+	//Save updates Transform Config section to Mongo
+	var saveTransformToMongo = function() {
 
+        UpdateTransformObject();
 
-		console.log(transformOptions);
-		console.log(options);
         $.getJSON("/saveConfigMongo", {
 			filter : {"meta.name":"MarkdownTransformConfig.json"},
             collname : cfgCollectionName,
             object : transformOptions
+        }, function(result) {
+			
+            $("#buildData").empty();
+            $("#buildData").append("<li>" + 'Config MarkdownTrans was updated in Mongo' + "</li>");
+
+        });
+        
+    };
+    
+
+    
+    var saveOptionsToMongo = function() {
+		
+        UpdateOptions();
+		
+        $.getJSON("/saveConfigMongo", {
+			filter : {"meta.name":"Options.json"},
+            collname : cfgCollectionName,
+            object : options
         }, function(result) {
 			
             //$("#buildData").empty();
@@ -63,36 +99,25 @@ define(['jquery'], function() {'use strict';
         
     };
     
-    var saveOptionsToMongo = function() {
+    //Save updates Options Config section to file
+	var saveOptionsToFile=function(){
 		
-        options.pathToConfig=$("#pathToConfig").val();
-        $("#reallyWrite").val(options.reallyWrite ? "true" : "false");
-        $("#bucketName").val(options.bucketName);
-        $("#folderToWalk").val(options.folderToWalk);
-        $("#s3RootFolder").val(options.s3RootFolder);
-        $("#createFolderToWalkOnS3").val(options.createFolderToWalkOnS3 ? "true" : "false");
-        $("#createIndex").val(options.createIndex ? "true" : "false");
-        $("#filesToIgnore").val(options.filesToIgnore);
-
-
-		console.log(transformOptions);
-		console.log(options);
-        $.getJSON("/saveConfigMongo", {
-			filter : {"meta.name":"MarkdownTransformConfig.json"},
-            collname : cfgCollectionName,
-            object : transformOptions
+		UpdateTransformObject();
+		
+		$.getJSON("/saveConfigToFile", {
+			fname : './Options.json',            
+            object : options
         }, function(result) {
 			
-            //$("#buildData").empty();
-            //var fileArray = result.data.split("\n");
-            //for (var i = 0; i < fileArray.length; i++) {
-                //if (fileArray[i].length > 0) {
-                    //$("#buildData").append("<li>" + fileArray[i] + "</li>");
-                //}
-            //}
+            $("#buildData").empty();
+            var fileArray = result.data.split("\n");
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
         });
-        
-    };
+	}
 	
 	
 	
@@ -106,6 +131,8 @@ define(['jquery'], function() {'use strict';
 			
 			transformOptions = result;
             displayTransformConfig(transformOptions[dataIndexTransform]);
+            
+            console.log(transformOptions);
 			
             //$("#buildData").empty();
             //var fileArray = result.data.split("\n");
@@ -130,6 +157,8 @@ define(['jquery'], function() {'use strict';
 			options = result;
             $('#documentCount').html(options.length);
             displayOptions(options[0]);
+            
+            console.log(options);
             
         }).fail(function(a) {
             alert(JSON.stringify(a));
@@ -235,6 +264,27 @@ define(['jquery'], function() {'use strict';
         $("#createIndex").val(options.createIndex ? "true" : "false");
         $("#filesToIgnore").val(options.filesToIgnore);
     };
+    
+    
+	var UpdateTransformObject=function(){
+		transformOptions[dataIndexTransform].pathToPython=$("#pathToPython").val();
+        transformOptions[dataIndexTransform].copyFrom=$("#copyFrom").val();
+        transformOptions[dataIndexTransform].copyTo=$("#copyTo").val();
+        transformOptions[dataIndexTransform].filesToCopy=$("#filesToCopy").val();
+		console.log(transformOptions);
+	}
+	
+	var UpdateOptions = function (){
+		options[dataIndex].pathToConfig=$("#pathToConfig").val();
+        options[dataIndex].reallyWrite=$("#reallyWrite").val();
+        options[dataIndex].bucketName=$("#bucketName").val();
+        options[dataIndex].folderToWalk=$("#folderToWalk").val();
+        options[dataIndex].s3RootFolder=$("#s3RootFolder").val();
+        options[dataIndex].createFolderToWalkOnS3=$("#createFolderToWalkOnS3").val();
+        options[dataIndex].createIndex=$("#createIndex").val();
+        options[dataIndex].filesToIgnore=$("#filesToIgnore").val();
+		console.log(options);
+	}
 
     var getBuildConfig = function() {
         $.getJSON("/getBuildConfig", function(optionsInit) {
@@ -256,6 +306,8 @@ define(['jquery'], function() {'use strict';
     };
 
     var forwardTransform = function() {
+		UpdateTransformObject();
+		
         if (dataIndexTransform < transformOptions.length - 1) {
             dataIndexTransform++;
             displayTransformConfig(transformOptions[dataIndexTransform]);
@@ -263,6 +315,8 @@ define(['jquery'], function() {'use strict';
     };
 
     var backwardTransform = function() {
+		UpdateTransformObject();
+		
         if (dataIndexTransform > 0) {
             dataIndexTransform--;
             displayTransformConfig(transformOptions[dataIndexTransform]);
@@ -272,6 +326,8 @@ define(['jquery'], function() {'use strict';
     };
 
     var forward = function() {
+		UpdateOptions();
+		
         if (dataIndex < options.length - 1) {
             dataIndex++;
             displayOptions(options[dataIndex]);
@@ -279,6 +335,8 @@ define(['jquery'], function() {'use strict';
     };
 
     var backward = function() {
+		UpdateOptions();
+		
         if (dataIndex > 0) {
             dataIndex--;
             displayOptions(options[dataIndex]);
