@@ -159,6 +159,14 @@ app.get('/saveConfigToFile', function(request, response) { 'use strict';
 
 });
 
+//Final - automatization
+app.get('/finalProg272', function(request, response) { 'use strict';
+	console.log('app.js:finalProg272 called');
+	Myfile.final(request, response);
+
+});
+
+
 
 
 http.createServer(app).listen(app.get('port'), function() {'use strict';

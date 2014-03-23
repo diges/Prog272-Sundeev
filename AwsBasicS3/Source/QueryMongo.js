@@ -90,20 +90,7 @@ var QueryMongo = (function() {'use strict';
 		database.close();
 	};
 
-	QueryMongo.prototype.getAllDocuments = function(initResponse) {
-		console.log("QueryMongo.getAllDocuments called");
-		response = initResponse;
-		getDatabase(function getCol(database) {
-			var collection = database.collection(collectionName);
 
-			// Send the collection to the client.
-			collection.find().toArray(function(err, theArray) {
-				console.dir(theArray);
-				if (callClose) { closeDatabase(); }
-				response.send(theArray);
-			});
-		});
-	};
 
 	// Get a specific number of documents from the collection
 	QueryMongo.prototype.getDocuments = function(initResponse, count) {
@@ -178,14 +165,14 @@ var QueryMongo = (function() {'use strict';
 		// Get a document from a collection with filter
 	QueryMongo.prototype.getDocumentsAll = function(initResponse, myCollectionName,filter) {
 		console.log("QueryMongo.getDocumentsAll called");
-		response = initResponse; //dd
+		response = initResponse; 
 		getDatabase(function getCol(database) {
 			var collection = database.collection(myCollectionName);
 
 			// Send the collection to the client.
 			collection.find(filter).limit(1).toArray(function(err, theArray) {
 				console.log("The Array in getDocumentsAll: " + JSON.stringify(theArray, null, 4));
-				if (callClose) { closeDatabase(); } //what  is header
+				if (callClose) { closeDatabase(); } 
 				//console.log(typeof response);
 				//console.log(typeof theArray);
 				response.send(theArray[0].fileContent);
@@ -229,8 +216,37 @@ var QueryMongo = (function() {'use strict';
 		return myJson;
 	};
 
+	//This function adds specific MarkDown formating to JSON object
+	QueryMongo.prototype.readFileOutJsonToMD = function(response, myCollectionName, path, filter) {
+		console.log("QueryMongo.readFileOutJsonToMD called");
+		getDatabase(function(database) {
+			var collection = database.collection(myCollectionName);
+			collection.find(filter).limit(1).toArray(function(err, theArray) {
+				if (err) {
+					throw err;
+				}
+				if (callClose) { closeDatabase(); }
+				
+				var mypath=path;
+				//console.log(JSON.stringify(theArray[0].title, null, 4));
+				
+				var MDobj=theArray[0].author+'\n'+
+							'=====================\n'+
+							theArray[0].title+
+							'\n---------------\n'+
+							theArray[0].content;
+				//console.log(MDobj);
+
+				writeFile(response,mypath+theArray[0].title.replace(/ /g,'')+'.md',MDobj); 
+
+				response.send({ result: "Success" });
+
+			});
+		});
+	};
 
 
+	//this function reads file out, has a lot of ifstatements to be able export all differents JSON structures stored in MongoDB
 	QueryMongo.prototype.readFileOut = function(response, myCollectionName, path, filter) {
 		console.log("readFileOut called");
 		getDatabase(function(database) {

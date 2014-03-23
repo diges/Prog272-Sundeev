@@ -31,11 +31,25 @@ define(['jquery'], function() {'use strict';
         $("#saveOptionsToMongo").click(saveOptionsToMongo);
         $("#saveOptionsToFile").click(saveOptionsToFile);
         
+         $("#finalProg272").click(finalProg272);
+        
+        
+        
         getBuildConfig();
         getOptions();
     }
 	
-   
+   var finalProg272= function(){
+	   $.getJSON("/finalProg272", {
+			path : '/home/bcuser/Dropbox/www/md',  
+			tpath: '/var/www/bc',
+            folders : ['Sonnets01','Sonnets02','Sonnets03','Sonnets04','Sonnets05','Sonnets06','Sonnets07'],
+            collname : 'shakespeare'
+            
+        }, function(result) {
+			console.log("Done");
+		});
+   }
 
 	
 	//Save updates Transform Config section to file
@@ -44,7 +58,7 @@ define(['jquery'], function() {'use strict';
 		UpdateTransformObject();
 		
 		$.getJSON("/saveConfigToFile", {
-			fname : './MarkdownTransformConfig.json',            
+			fname : './MarkdownTransformConfig.json', //Name of the file could be read from text box in future           
             object : transformOptions
         }, function(result) {
 			
@@ -105,7 +119,7 @@ define(['jquery'], function() {'use strict';
 		UpdateTransformObject();
 		
 		$.getJSON("/saveConfigToFile", {
-			fname : './Options.json',            
+			fname : './Options.json', //Name of the file could be read from text box in future
             object : options
         }, function(result) {
 			

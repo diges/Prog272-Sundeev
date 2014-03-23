@@ -6,6 +6,57 @@ var qm = require('./QueryMongo');
 var queryMongo = qm.QueryMongo; 
 
 
+function final(request, response){
+	
+	// 1) Create folders in DropboxDir
+	var DropBoxDir  = request.query.path;
+	var TargetDir  = request.query.tpath;
+	var foldersArr  = request.query.folders;
+	var colName= request.query.collname;
+	var pathOut = '';
+	
+	var i = foldersArr.length;
+	
+	while(i--){
+		//DropBox Dirs
+		fs.mkdir (DropBoxDir+'/'+foldersArr[i], 0777, function(e) {
+			if(e) {
+				console.log(e);
+			} else {
+				console.log(foldersArr[i] + " created");
+				//response.send ({ data: fName+ " was saved!" });
+			}
+		});
+		
+		//Target Dirs
+		fs.mkdir (TargetDir+'/'+foldersArr[i], 0777, function(e) {
+			if(e) {
+				console.log(e);
+			} else {
+				console.log(foldersArr[i] + " created");
+			}
+		});
+	}
+	
+	// 2) Populate sonnet's MD files from Shakespeare collectionto dropBox
+	i = foldersArr.length;
+	while(i--){
+		pathOut = DropBoxDir+'/'+foldersArr[i]+'/';
+		
+		var filter='';
+		
+		for (var j = (i*5)+1; j <=i*5+5; j++)
+		{
+			filter='{\"title\":\"Sonnet '+j+'\"}';
+			queryMongo.readFileOutJsonToMD(response, colName, pathOut, JSON.parse(filter));
+		}
+	}
+	
+}
+
+
+
+
 // function saves changes to config File
 function saveConfigToFile(request, response){
 	console.log('MyFile.js:saveConfigToFile function called');
@@ -153,3 +204,4 @@ exports.pullDownFile =pullDownFile;
 exports.readConfig=readConfig;
 exports.saveConfigMongo=saveConfigMongo;
 exports.saveConfigToFile=saveConfigToFile;
+exports.final=final;
