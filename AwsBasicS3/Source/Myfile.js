@@ -4,6 +4,7 @@
 var fs = require('fs');
 var qm = require('./QueryMongo');
 var queryMongo = qm.QueryMongo; 
+var walk  = require('walk');
 
 
 function final(request, response){
@@ -53,6 +54,55 @@ function final(request, response){
 	}
 	
 }
+
+function finalWalk(filesArr,path){
+	for (var i = 0; i < filesArr.files.length; i++) {
+		
+		var pathName=filesArr.files[i].replace(path,'');
+		console.log(pathName);
+		
+		var fname=filesArr.files[i].replace(/^.*(\\|\/|\:)/, '');//location.pathname.substring(location.pathname.lastIndexOf('/')+1);
+		console.log(fName);
+		var Keywords =['keyord1','keyword2'];
+		var comments  = 'Super file';
+		
+		var meta = '{ \"path\":\"'+path + '\",'+
+				 '\"name\":\"'+pathName + '\",'+
+				 '\"Keywords\":\"'+type + '\",'+
+				 //'\"dateOfImport\":\"'+new Date().now() +  '@' + new Date().timeNow() + '\",'+
+				 '\"comments\":\"'+comments + '\"}'
+		console.log(meta);
+		meta=JSON.parse(meta);
+		
+		var jsonObject = queryMongo.readFile(fname, filesArr.files[i],meta);
+		
+		var jsonObject = queryMongo.readFile(fileNameArr[i], filePath+fileNameArr[i],meta);
+		
+		queryMongo.insertIntoCollection(response, colName, jsonObject);
+		
+		
+
+	};
+};
+
+
+
+
+//get files in all subdirs
+//var files   = [];
+//function getFiles(dir){
+    //var files = fs.readdirSync(dir);
+    //for(var i in files){
+        //if (!files.hasOwnProperty(i)) continue;
+        //var name = dir+'/'+files[i];
+        //if (fs.statSync(name).isDirectory()){
+            //getFiles(name);
+        //}else{
+            //console.log(name)
+        //}
+    //}
+//}
+
 
 
 
@@ -205,3 +255,5 @@ exports.readConfig=readConfig;
 exports.saveConfigMongo=saveConfigMongo;
 exports.saveConfigToFile=saveConfigToFile;
 exports.final=final;
+exports.finalWalk=finalWalk;
+

@@ -12,6 +12,7 @@ var s3Code = require("./Source/S3Code");
 var Myfile = require("./Source/Myfile");
 var fs = require("fs");
 var exec = require('child_process').exec;
+var walk = require('./Source/WalkJsObjects').walk;
 
 var app = express();
 
@@ -166,6 +167,37 @@ app.get('/finalProg272', function(request, response) { 'use strict';
 
 });
 
+
+//walk
+app.get('/walk', function(request, response) {
+	// If you run Node in Eclipse, to access JSOBJECTS, you made need 
+	// to choose Run | Run Configurations | Environment | Select
+	//var dirToWalk = process.env.JSOBJECTS;
+	// var dirToWalk = getHomeDir + '/bin';
+	
+	var dirToWalk =request.query.path;
+	console.log("About to walk: " + dirToWalk);
+	//walk(dirToWalk, ['.html'], ['node_modules', 'JavaScript'], function(err, data) {
+	walk(dirToWalk, ['.md'], ['node_modules'], function(err, data) {
+		if (err) {
+			console.log(err);
+			response.send({
+				result : "Error",
+				error : err
+			});
+		} else {
+			console.log(data);
+			
+			Myfile.finalWalk(data,dirToWalk); //I'll need path just to keep original path and in future to recreate folder's structure 
+			
+			response.send({
+				result : "Success",
+				files : data
+			});
+		}
+	});
+
+});
 
 
 

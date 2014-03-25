@@ -3,36 +3,72 @@
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets01",
         "copyTo": "/var/www/bc/Sonnets01",
-        "filesToCopy": ["Sonnet1","Sonnet2","Sonnet3","Sonnet4","Sonnet5"]
-    }, {
+        "filesToCopy": "Sonnet1,Sonnet2,Sonnet3,Sonnet4,Sonnet5"
+    },
+    {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets02",
         "copyTo": "/var/www/bc/Sonnets02",
-        "filesToCopy": ["Sonnet6","Sonnet7","Sonnet8","Sonnet9","Sonnet10"]
-    }, {
+        "filesToCopy": "Sonnet6,Sonnet7,Sonnet8,Sonnet9,Sonnet10"
+    },
+    {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets03",
         "copyTo": "/var/www/bc/Sonnets03",
-        "filesToCopy": ["Sonnet11","Sonnet12","Sonnet13","Sonnet14","Sonnet15"]
-    }, {
+        "filesToCopy": [
+            "Sonnet11",
+            "Sonnet12",
+            "Sonnet13",
+            "Sonnet14",
+            "Sonnet15"
+        ]
+    },
+    {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets04",
         "copyTo": "/var/www/bc/Sonnets04",
-        "filesToCopy": ["Sonnet16","Sonnet17","Sonnet18","Sonnet19","Sonnet20"]
-    }, {
+        "filesToCopy": [
+            "Sonnet16",
+            "Sonnet17",
+            "Sonnet18",
+            "Sonnet19",
+            "Sonnet20"
+        ]
+    },
+    {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets05",
         "copyTo": "/var/www/bc/Sonnets05",
-        "filesToCopy": ["Sonnet21","Sonnet22","Sonnet23","Sonnet24","Sonnet25"]
-    }, {
+        "filesToCopy": [
+            "Sonnet21",
+            "Sonnet22",
+            "Sonnet23",
+            "Sonnet24",
+            "Sonnet25"
+        ]
+    },
+    {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets06",
         "copyTo": "/var/www/bc/Sonnets06",
-        "filesToCopy": ["Sonnet26","Sonnet27","Sonnet28","Sonnet29","Sonnet30"]
-    }, {
+        "filesToCopy": [
+            "Sonnet26",
+            "Sonnet27",
+            "Sonnet28",
+            "Sonnet29",
+            "Sonnet30"
+        ]
+    },
+    {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets07",
         "copyTo": "/var/www/bc/Sonnets07",
-        "filesToCopy": ["Sonnet31","Sonnet32","Sonnet33","Sonnet34","Sonnet35"]
+        "filesToCopy": [
+            "Sonnet31",
+            "Sonnet32",
+            "Sonnet33",
+            "Sonnet34",
+            "Sonnet35"
+        ]
     }
 ]

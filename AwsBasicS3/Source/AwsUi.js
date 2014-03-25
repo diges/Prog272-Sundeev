@@ -31,13 +31,37 @@ define(['jquery'], function() {'use strict';
         $("#saveOptionsToMongo").click(saveOptionsToMongo);
         $("#saveOptionsToFile").click(saveOptionsToFile);
         
-         $("#finalProg272").click(finalProg272);
+        $("#finalProg272").click(finalProg272);
+         
+         
+        $("#finalWalk").click(finalWalk);
+        $("#finalPutItBack").click(finalPutItBack);
         
         
         
         getBuildConfig();
         getOptions();
     }
+
+   var finalWalk= function(){
+	   $.getJSON("/walk", {
+			path : '/home/bcuser/Dropbox/www/md',  
+            collname : 'finalWalk'
+            
+        }, function(result) {
+			//console.log("Done");
+			
+			$("#buildData").empty();
+            var fileArray = result.files;
+            for (var i = 0; i < fileArray.length; i++) {
+                if (fileArray[i].length > 0) {
+                    $("#buildData").append("<li>" + fileArray[i] + "</li>");
+                }
+            }
+		});
+   }
+
+
 	
    var finalProg272= function(){
 	   $.getJSON("/finalProg272", {
@@ -48,6 +72,7 @@ define(['jquery'], function() {'use strict';
             
         }, function(result) {
 			console.log("Done");
+
 		});
    }
 
