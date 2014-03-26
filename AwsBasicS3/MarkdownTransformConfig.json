@@ -3,13 +3,25 @@
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets01",
         "copyTo": "/var/www/bc/Sonnets01",
-        "filesToCopy": "Sonnet1,Sonnet2,Sonnet3,Sonnet4,Sonnet5"
+        "filesToCopy": [
+            "Sonnet1",
+            "Sonnet2",
+            "Sonnet3",
+            "Sonnet4",
+            "Sonnet5"
+        ]
     },
     {
         "pathToPython": "/usr/bin/python3.3",
         "copyFrom": "/home/bcuser/Dropbox/www/md/Sonnets02",
         "copyTo": "/var/www/bc/Sonnets02",
-        "filesToCopy": "Sonnet6,Sonnet7,Sonnet8,Sonnet9,Sonnet10"
+        "filesToCopy": [
+            "Sonnet6",
+            "Sonnet7",
+            "Sonnet8",
+            "Sonnet9",
+            "Sonnet10"
+        ]
     },
     {
         "pathToPython": "/usr/bin/python3.3",

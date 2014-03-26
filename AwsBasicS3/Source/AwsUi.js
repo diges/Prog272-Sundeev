@@ -5,10 +5,15 @@ define(['jquery'], function() {'use strict';
     var transformOptions = null;
     var dataIndex = 0;
     var dataIndexTransform = 0;
-    var cfgCollectionName = 'FilesConfig'; //Name of collection where I keep my configs
-    var MDsCollectionName = 'filesCollection';
+    var cfgCollectionName = 'FilesConfig'; //Name of the collection where I keep my configs
+    var MDsCollectionName = 'filesCollection'; //Name of the collection where I keep my MD files for CopyToS3Part02 assignmnt
+    var finalMDsCollectionName = 'finalWalk'; //Name of the collection where I keep my MD files for Final assignmnt
 
     function AwsUi() {
+		//default path values
+		$("#uploadMDfrom").val("/var/www/CopyToS3Part02");
+		$("#downloadMDto").val("/var/www/CopyToS3Part02/output");
+		
         $("#listBuckets").click(listBuckets);
         $("#copyToS3").click(copyToS3);
         $("#transformForwardButton").click(forwardTransform);
@@ -35,18 +40,17 @@ define(['jquery'], function() {'use strict';
          
          
         $("#finalWalk").click(finalWalk);
-        $("#finalPutItBack").click(finalPutItBack);
-        
         
         
         getBuildConfig();
         getOptions();
+        
     }
 
    var finalWalk= function(){
 	   $.getJSON("/walk", {
-			path : '/home/bcuser/Dropbox/www/md',  
-            collname : 'finalWalk'
+			path : $("#pathToWalk").val(),  
+            collname : finalMDsCollectionName
             
         }, function(result) {
 			//console.log("Done");
@@ -62,10 +66,10 @@ define(['jquery'], function() {'use strict';
    }
 
 
-	
+	//passing all parameters for reading sonnets from DB and write it to folders
    var finalProg272= function(){
 	   $.getJSON("/finalProg272", {
-			path : '/home/bcuser/Dropbox/www/md',  
+			path : '/home/bcuser/Dropbox/www/md',  //I dont want to populate too many textboxes and I hardcoded it here :)
 			tpath: '/var/www/bc',
             folders : ['Sonnets01','Sonnets02','Sonnets03','Sonnets04','Sonnets05','Sonnets06','Sonnets07'],
             collname : 'shakespeare'
@@ -81,6 +85,9 @@ define(['jquery'], function() {'use strict';
 	var saveTransformToFile=function(){
 		
 		UpdateTransformObject();
+		
+		//this part was hard for me to find and fix, I mean it is not obvious what in DB it is just a string without this.
+        //transformOptions.filesToCopy=JSON.stringify(transformOptions.filesToCopy.split(","))
 		
 		$.getJSON("/saveConfigToFile", {
 			fname : './MarkdownTransformConfig.json', //Name of the file could be read from text box in future           
@@ -116,7 +123,7 @@ define(['jquery'], function() {'use strict';
     };
     
 
-    
+    //Save updates Options Config section to Mongo
     var saveOptionsToMongo = function() {
 		
         UpdateOptions();
@@ -141,7 +148,7 @@ define(['jquery'], function() {'use strict';
     //Save updates Options Config section to file
 	var saveOptionsToFile=function(){
 		
-		UpdateTransformObject();
+		UpdateOptions();
 		
 		$.getJSON("/saveConfigToFile", {
 			fname : './Options.json', //Name of the file could be read from text box in future
@@ -228,7 +235,7 @@ define(['jquery'], function() {'use strict';
     
     var uploadMD = function() {
         $.getJSON("/insertMDsToMongo", {
-            path : '/home/bcuser/Dropbox/www/md'+'/',
+            path : $("#uploadMDfrom").val()+'/', //'/home/bcuser/Dropbox/www/md'+'/',
             collname : MDsCollectionName,
             markdownarr : ['sonnet1.md','sonnet2.md','sonnet3.md','sonnet4.md','sonnet5.md']
         }, function(result) {
@@ -242,10 +249,10 @@ define(['jquery'], function() {'use strict';
         });
     };
     
-    
+     
     var downloadMD = function() {
         $.getJSON("/getMDFileOut", {
-            path : '/home/bcuser/Dropbox/www/md'+'/',
+            path : $("#downloadMDto").val()+'/',     //'/home/bcuser/Dropbox/www/md'+'/',
             collname : MDsCollectionName,
             filter : ''
         }, function(result) {
@@ -290,6 +297,8 @@ define(['jquery'], function() {'use strict';
         $("#copyFrom").val(options.copyFrom);
         $("#copyTo").val(options.copyTo);
         $("#filesToCopy").val(options.filesToCopy);
+        //$("#filesToCopy").val(JSON.parse(options.filesToCopy));
+        $("#pathToWalk").val(options.copyFrom.split("/").slice(0, -1).join("/")+"/");
     };
 
     var displayOptions = function(options) {
@@ -302,6 +311,7 @@ define(['jquery'], function() {'use strict';
         $("#createFolderToWalkOnS3").val(options.createFolderToWalkOnS3 ? "true" : "false");
         $("#createIndex").val(options.createIndex ? "true" : "false");
         $("#filesToIgnore").val(options.filesToIgnore);
+        //$("#filesToIgnore").val(JSON.parse(options.filesToIgnore));
     };
     
     
@@ -309,7 +319,10 @@ define(['jquery'], function() {'use strict';
 		transformOptions[dataIndexTransform].pathToPython=$("#pathToPython").val();
         transformOptions[dataIndexTransform].copyFrom=$("#copyFrom").val();
         transformOptions[dataIndexTransform].copyTo=$("#copyTo").val();
-        transformOptions[dataIndexTransform].filesToCopy=$("#filesToCopy").val();
+        //this part was  tricky :)
+        transformOptions[dataIndexTransform].filesToCopy=JSON.parse(JSON.stringify($("#filesToCopy").val().split(",")));
+        //transformOptions[dataIndexTransform].filesToCopy=JSON.stringify($("#filesToCopy").val().split(","));
+        //transformOptions[dataIndexTransform].filesToCopy=$("#filesToCopy").val();
 		console.log(transformOptions);
 	}
 	
@@ -321,7 +334,7 @@ define(['jquery'], function() {'use strict';
         options[dataIndex].s3RootFolder=$("#s3RootFolder").val();
         options[dataIndex].createFolderToWalkOnS3=$("#createFolderToWalkOnS3").val();
         options[dataIndex].createIndex=$("#createIndex").val();
-        options[dataIndex].filesToIgnore=$("#filesToIgnore").val();
+        options[dataIndex].filesToIgnore=JSON.parse(JSON.stringify($("#filesToIgnore").val().split(",")));
 		console.log(options);
 	}
 

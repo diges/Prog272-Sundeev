@@ -15,14 +15,19 @@
         <img src="Bar02.png">
         </div>
         
-        <p>
-        <button id="uploadMD">Upload MDs to Mango</button>
-        <button id="downloadMD">Download MDs from Mango</button>
-        <button id="buildAll">Transform and copy</button>
-        </p>
+        Uploading and downloading files just from current folder(not from subfolders) 
+        <p><input type="text" id="uploadMDfrom" />
+        <button id="uploadMD">Upload MDs to Mango</button></p>
+        <p><input type="text" id="downloadMDto" />
+        <button id="downloadMD">Download MDs from Mango</button></p>
+        ---------
+        <p><button id="buildAll">Transform and copy</button></p>
+        ---------
+        
         <p>
         <button id="uploadConfig">Push All Configs files to Mango</button>
         </p>
+        
         <button id="getConfig">Get Configs from Mango</button>
         <button id="tranformBackButton">&lt;&lt;</button>
         <button id="transformForwardButton">&gt;&gt;</button>
@@ -32,10 +37,8 @@
         <p><button id="finalProg272">Prog272 Final Automatsation: 1.Creates folders 2.ReadsOur Sonets to MDs 3.Run 'Copy and Transform' manually :)</button></p>
         
         <p><input type="text" id="pathToWalk" />
-        <button id="finalWalk">Read all files to db</button></p>
-        <p><input type="text" id="pathToReturn" />
-        <button id="finalPutItBack">Put it Back</button></p>
-        
+        <button id="finalWalk">Read all *.MD files from this path to MongoDB (including subfolders - walk)</button></p>
+     
         
         
 

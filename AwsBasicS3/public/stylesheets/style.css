@@ -7,6 +7,14 @@ a {
   color: #00B7FF;
 }
 
+#pathToWalk,#uploadMDfrom,#downloadMDto {
+	display: inline-block;
+	padding-left: 3px;
+	width:40%;    
+	border: solid black 1px;
+	background-color: #BBFFFF;
+}
+
 .displayKing label {	
 	display: inline-block;
 	padding: 2px;	

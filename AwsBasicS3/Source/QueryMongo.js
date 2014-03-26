@@ -25,10 +25,10 @@ var QueryMongo = (function() {'use strict';
 
 	function QueryMongo() {
 		var urls = ['mongodb://127.0.0.1:27017/test',
-			'mongodb://192.168.0.10:27017/test',
-			'mongodb://dbadmin:diges20@ds053728.mongolab.com:53728/dmitrydb'];
+			'mongodb://127.0.0.1:27017/test2',
+			'mongodb://prog272:prog272@ds053728.mongolab.com:53728/dmitrydb'];
 
-		url = urls[0];
+		url = urls[2];
 	}
 
 	function showDatabase(database, deep) {

@@ -55,56 +55,36 @@ function final(request, response){
 	
 }
 
-function finalWalk(filesArr,path){
-	for (var i = 0; i < filesArr.files.length; i++) {
+function finalWalk(response, filesArr,path,colName){
+	for (var i = 0; i < filesArr.length; i++) {
 		
-		var pathName=filesArr.files[i].replace(path,'');
+		var pathName=filesArr[i].replace(path,'');
 		console.log(pathName);
 		
-		var fname=filesArr.files[i].replace(/^.*(\\|\/|\:)/, '');//location.pathname.substring(location.pathname.lastIndexOf('/')+1);
-		console.log(fName);
-		var Keywords =['keyord1','keyword2'];
-		var comments  = 'Super file';
+		var fname=filesArr[i].replace(/^.*(\\|\/|\:)/, ''); //extracting just a file name.
+		
+		//for now I just hardcoded these parametres, later I'll read it from UI and get it as parametrs
+		var Keywords ='[\"sonnet\",\"poem\"]';
+		var comments  = 'Imported sonnets';
 		
 		var meta = '{ \"path\":\"'+path + '\",'+
 				 '\"name\":\"'+pathName + '\",'+
-				 '\"Keywords\":\"'+type + '\",'+
-				 //'\"dateOfImport\":\"'+new Date().now() +  '@' + new Date().timeNow() + '\",'+
+				 '\"Keywords\":'+Keywords + ','+
 				 '\"comments\":\"'+comments + '\"}'
-		console.log(meta);
+		
 		meta=JSON.parse(meta);
+		console.log(meta);
 		
-		var jsonObject = queryMongo.readFile(fname, filesArr.files[i],meta);
+		//read file
+		var jsonObject = queryMongo.readFile(fname, filesArr[i],meta);
 		
-		var jsonObject = queryMongo.readFile(fileNameArr[i], filePath+fileNameArr[i],meta);
-		
+		//write to Mongo
 		queryMongo.insertIntoCollection(response, colName, jsonObject);
 		
 		
 
 	};
 };
-
-
-
-
-//get files in all subdirs
-//var files   = [];
-//function getFiles(dir){
-    //var files = fs.readdirSync(dir);
-    //for(var i in files){
-        //if (!files.hasOwnProperty(i)) continue;
-        //var name = dir+'/'+files[i];
-        //if (fs.statSync(name).isDirectory()){
-            //getFiles(name);
-        //}else{
-            //console.log(name)
-        //}
-    //}
-//}
-
-
-
 
 
 // function saves changes to config File
@@ -122,8 +102,6 @@ function saveConfigToFile(request, response){
 			response.send ({ data: fName+ " was saved!" });
 		}
 	});
-	
-	
 }
 
 
@@ -143,7 +121,6 @@ function saveConfigMongo(request, response) { 'use strict';
 
 	queryMongo.updateCollection(response, objectToInsert, colName);
 }
-
 
 
 function readConfig (request, response) { 'use strict';

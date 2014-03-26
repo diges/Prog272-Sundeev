@@ -2,12 +2,16 @@
     {
         "pathToConfig": "/home/bcuser/Documents/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/config.json",
         "reallyWrite": "true",
-        "bucketName": "prog272.test",
+        "bucketName": "prog272.final",
         "folderToWalk": "/var/www/bc",
         "s3RootFolder": "www",
         "createFolderToWalkOnS3": "true",
         "createIndex": "true",
-        "filesToIgnore": "Thumbs.db,.gitignore,MyFile.html"
+        "filesToIgnore": [
+            "Thumbs.db",
+            ".gitignore",
+            "MyFile.html"
+        ]
     },
     {
         "pathToConfig": "/home/bcuser/Documents/Git/Dmitry/Prog272-Sundeev/AwsBasicS3/config.json",
@@ -17,7 +21,11 @@
         "s3RootFolder": "www",
         "createFolderToWalkOnS3": "true",
         "createIndex": "true",
-        "filesToIgnore": "Thumbs.db,.gitignore,MyFile.html"
+        "filesToIgnore": [
+            "Thumbs.db",
+            ".gitignore",
+            "MyFile.html"
+        ]
     },
     {
         "pathToConfig": "c:\\src\\config\\config.json",
@@ -27,7 +35,11 @@
         "s3RootFolder": "FilesNine",
         "createFolderToWalkOnS3": "true",
         "createIndex": "true",
-        "filesToIgnore": "Thumbs.db,.gitignore,MyFile.html"
+        "filesToIgnore": [
+            "Thumbs.db",
+            ".gitignore",
+            "MyFile.html"
+        ]
     },
     {
         "pathToConfig": "/home/charlie/config.json",
@@ -37,6 +49,10 @@
         "s3RootFolder": "FilesFive",
         "createFolderToWalkOnS3": "true",
         "createIndex": "true",
-        "filesToIgnore": "Thumbs.db,.gitignore,MyFile.html"
+        "filesToIgnore": [
+            "Thumbs.db",
+            ".gitignore",
+            "MyFile.html"
+        ]
     }
 ]

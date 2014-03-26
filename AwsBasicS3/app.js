@@ -176,6 +176,7 @@ app.get('/walk', function(request, response) {
 	// var dirToWalk = getHomeDir + '/bin';
 	
 	var dirToWalk =request.query.path;
+	var collection = request.query.collname;
 	console.log("About to walk: " + dirToWalk);
 	//walk(dirToWalk, ['.html'], ['node_modules', 'JavaScript'], function(err, data) {
 	walk(dirToWalk, ['.md'], ['node_modules'], function(err, data) {
@@ -188,7 +189,7 @@ app.get('/walk', function(request, response) {
 		} else {
 			console.log(data);
 			
-			Myfile.finalWalk(data,dirToWalk); //I'll need path just to keep original path and in future to recreate folder's structure 
+			Myfile.finalWalk(response, data,dirToWalk,collection);
 			
 			response.send({
 				result : "Success",
