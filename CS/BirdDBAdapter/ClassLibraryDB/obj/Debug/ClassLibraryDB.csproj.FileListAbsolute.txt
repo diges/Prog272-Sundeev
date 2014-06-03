@@ -1,0 +1,5 @@
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\ClassLibraryDB\bin\Debug\ClassLibraryDB.dll
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\ClassLibraryDB\bin\Debug\ClassLibraryDB.pdb
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\ClassLibraryDB\obj\Debug\ClassLibraryDB.dll
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\ClassLibraryDB\obj\Debug\ClassLibraryDB.pdb
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\ClassLibraryDB\obj\Debug\ClassLibraryDB.csprojResolveAssemblyReference.cache

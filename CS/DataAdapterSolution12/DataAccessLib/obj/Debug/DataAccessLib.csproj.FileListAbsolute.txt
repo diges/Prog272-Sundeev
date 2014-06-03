@@ -1,0 +1,18 @@
+c:\users\kurt\documents\visual studio 2012\Projects\DataAdapterSolution\DataAccessLib\bin\Debug\DataAccessLib.dll
+c:\users\kurt\documents\visual studio 2012\Projects\DataAdapterSolution\DataAccessLib\bin\Debug\DataAccessLib.pdb
+c:\users\kurt\documents\visual studio 2012\Projects\DataAdapterSolution\DataAccessLib\obj\Debug\DataAccessLib.dll
+c:\users\kurt\documents\visual studio 2012\Projects\DataAdapterSolution\DataAccessLib\obj\Debug\DataAccessLib.pdb
+C:\Users\kurt\Google Drive\BellevueCollege\AA------Prog210 EnterpriseWeb II\Module-3-TheDataAdapterAndDataSet\DataAdapterSolution12\DataAccessLib\bin\Debug\DataAccessLib.dll
+C:\Users\kurt\Google Drive\BellevueCollege\AA------Prog210 EnterpriseWeb II\Module-3-TheDataAdapterAndDataSet\DataAdapterSolution12\DataAccessLib\bin\Debug\DataAccessLib.pdb
+C:\Users\kurt\Google Drive\BellevueCollege\AA------Prog210 EnterpriseWeb II\Module-3-TheDataAdapterAndDataSet\DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.dll
+C:\Users\kurt\Google Drive\BellevueCollege\AA------Prog210 EnterpriseWeb II\Module-3-TheDataAdapterAndDataSet\DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.pdb
+C:\Users\dmitry.sundeev\Dropbox\prog210\6-6th class - Jan 23\DataAdapterSolution12\DataAccessLib\bin\Debug\DataAccessLib.dll
+C:\Users\dmitry.sundeev\Dropbox\prog210\6-6th class - Jan 23\DataAdapterSolution12\DataAccessLib\bin\Debug\DataAccessLib.pdb
+C:\Users\dmitry.sundeev\Dropbox\prog210\6-6th class - Jan 23\DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.csprojResolveAssemblyReference.cache
+C:\Users\dmitry.sundeev\Dropbox\prog210\6-6th class - Jan 23\DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.dll
+C:\Users\dmitry.sundeev\Dropbox\prog210\6-6th class - Jan 23\DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.pdb
+E:\Personal\Dima\Study\Prog210\DmitrySundeev-DataAdapterSolution12\DataAccessLib\bin\Debug\DataAccessLib.dll
+E:\Personal\Dima\Study\Prog210\DmitrySundeev-DataAdapterSolution12\DataAccessLib\bin\Debug\DataAccessLib.pdb
+E:\Personal\Dima\Study\Prog210\DmitrySundeev-DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog210\DmitrySundeev-DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.dll
+E:\Personal\Dima\Study\Prog210\DmitrySundeev-DataAdapterSolution12\DataAccessLib\obj\Debug\DataAccessLib.pdb

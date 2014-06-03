@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="DmitryDVD_Winter14.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Dmitry DVD Projrct Stage 1</title>
+    <link href="src/mainCSS.css" type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" class="content">
+        <div>
+            <!-- Header -->
+            <div class="header">
+                <h1>Welcome to Dmitry’s DVD Store</h1>
+
+                <!-- Menu -->
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu"
+                    EnableViewState="False" IncludeStyleBlock="False"
+                    StaticSubMenuIndent="16px">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/home.aspx" Text="Home" />
+                        <asp:MenuItem NavigateUrl="~/details.aspx" Text="Details" />
+                        <asp:MenuItem NavigateUrl="~/admin/AddDVD.aspx" Text="Add DVD" />
+                        <asp:MenuItem NavigateUrl="~/admin/EditDVD.aspx" Text="Edit DVD" />
+                        <asp:MenuItem NavigateUrl="~/admin/reports.aspx" Text="Reports" />
+                    </Items>
+                </asp:Menu>
+
+                <div id="fancyLine"></div>
+
+            </div>
+
+            
+                     
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            
+            <!-- Footer -->
+            <div class="footer">
+               <p>Dmitry Sundeev Prog217</p>
+            </div>
+
+
+
+
+        </div>
+    </form>
+</body>
+</html>

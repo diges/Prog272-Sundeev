@@ -1,0 +1,67 @@
+c:\users\dmitry.sundeev\documents\visual studio 2012\Projects\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+c:\users\dmitry.sundeev\documents\visual studio 2012\Projects\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+c:\users\dmitry.sundeev\documents\visual studio 2012\Projects\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+c:\users\dmitry.sundeev\documents\visual studio 2012\Projects\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+c:\users\dmitry.sundeev\documents\visual studio 2012\Projects\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\HW\DmitryDVD-Winter14_stage1\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\HW\DmitryDVD-Winter14_stage1\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\HW\DmitryDVD-Winter14_stage1\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\HW\DmitryDVD-Winter14_stage1\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\HW\DmitryDVD-Winter14_stage1\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\HW\DmitryDVD-Winter14_stage1\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\DmitrySundeev-Assignment 5\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\!!HW\DmitrySundeev-Assignment 5\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\DmitrySundeev-Assignment 5\DmitryDVD-Winter14\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\DmitrySundeev-Assignment 5\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\!!HW\DmitrySundeev-Assignment 5\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\DmitrySundeev-Assignment 5\DmitryDVD-Winter14\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv2\DmitryDVD-Winter14v2\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv3\DmitryDVD-Winter14v3\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv3\DmitryDVD-Winter14v3\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv3\DmitryDVD-Winter14v3\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv3\DmitryDVD-Winter14v3\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv3\DmitryDVD-Winter14v3\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv4\DmitryDVD-Winter14v4\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv4\DmitryDVD-Winter14v4\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv4\DmitryDVD-Winter14v4\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv4\DmitryDVD-Winter14v4\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv4\DmitryDVD-Winter14v4\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv4\DmitryDVD-Winter14v4\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv5\DmitryDVD-Winter14v5\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+C:\Users\dmitry.sundeev\Dropbox\Prog117\DVD_prg\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv6\DmitryDVD-Winter14v6\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv7\DmitryDVD-Winter14v7\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll.config
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv7\DmitryDVD-Winter14v7\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv7\DmitryDVD-Winter14v7\DmitryDVD-Winter14\bin\DmitryDVD-Winter14.pdb
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv7\DmitryDVD-Winter14v7\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv7\DmitryDVD-Winter14v7\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.dll
+E:\Personal\Dima\Study\Prog117\!!HW\Dmitry-Sundeev-DVDv7\DmitryDVD-Winter14v7\DmitryDVD-Winter14\obj\Debug\DmitryDVD-Winter14.pdb

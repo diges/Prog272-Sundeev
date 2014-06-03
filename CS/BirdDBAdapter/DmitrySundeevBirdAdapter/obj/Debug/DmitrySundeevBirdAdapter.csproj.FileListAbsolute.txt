@@ -1,0 +1,11 @@
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\bin\Debug\DmitrySundeevBirdAdapter.exe.config
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\bin\Debug\DmitrySundeevBirdAdapter.exe
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\bin\Debug\DmitrySundeevBirdAdapter.pdb
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\obj\Debug\DmitrySundeevBirdAdapter.csprojResolveAssemblyReference.cache
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\obj\Debug\DmitrySundeevBirdAdapter.Form1.resources
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\obj\Debug\DmitrySundeevBirdAdapter.Properties.Resources.resources
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\obj\Debug\DmitrySundeevBirdAdapter.csproj.GenerateResource.Cache
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\obj\Debug\DmitrySundeevBirdAdapter.exe
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\obj\Debug\DmitrySundeevBirdAdapter.pdb
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\bin\Debug\ClassLibraryDB.dll
+E:\Personal\Dima\Study\Prog210\DmitrySundeevBirdAdapter\DmitrySundeevBirdAdapter\bin\Debug\ClassLibraryDB.pdb

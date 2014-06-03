@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Birds" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DIGES\SQLEXPRESS;Initial Catalog=Birds;Integrated Security=True" SettingsObjectName="DmitrySundeevLINQ_Assignment_6.Properties.Settings" SettingsPropertyName="BirdsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Bird" Member="Birds">
+    <Type Name="Bird">
+      <Column Name="BirdID" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Bird_BirdCount" Member="BirdCounts" ThisKey="BirdID" OtherKey="BirdID" Type="BirdCount" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BirdCount" Member="BirdCounts">
+    <Type Name="BirdCount">
+      <Column Name="CountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegionID" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="BirderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BirdID" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CountDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Counted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Bird_BirdCount" Member="Bird" ThisKey="BirdID" OtherKey="BirdID" Type="Bird" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
